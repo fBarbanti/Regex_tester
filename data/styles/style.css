@@ -1,0 +1,11 @@
+.flag-title, .match-title{
+    font-weight: bold;
+}
+
+.text {
+    font-size: large;
+    border-width: 2px;
+}
+.frame-border {
+    border-radius: 3px;
+}
