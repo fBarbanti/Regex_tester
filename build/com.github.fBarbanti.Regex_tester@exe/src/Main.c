@@ -38,15 +38,15 @@ _vala_main (gchar** args,
 	gint result = 0;
 	Application* app = NULL;
 	Application* _tmp0_;
-#line 2 "/home/francesco/Progetti_Personali/regex_tester/src/Main.vala"
+#line 2 "/home/francesco/Progetti_Personali/Regex_tester/src/Main.vala"
 	_tmp0_ = application_new ();
-#line 2 "/home/francesco/Progetti_Personali/regex_tester/src/Main.vala"
+#line 2 "/home/francesco/Progetti_Personali/Regex_tester/src/Main.vala"
 	app = _tmp0_;
-#line 3 "/home/francesco/Progetti_Personali/regex_tester/src/Main.vala"
+#line 3 "/home/francesco/Progetti_Personali/Regex_tester/src/Main.vala"
 	result = g_application_run ((GApplication*) app, args_length1, args);
-#line 3 "/home/francesco/Progetti_Personali/regex_tester/src/Main.vala"
+#line 3 "/home/francesco/Progetti_Personali/Regex_tester/src/Main.vala"
 	_g_object_unref0 (app);
-#line 3 "/home/francesco/Progetti_Personali/regex_tester/src/Main.vala"
+#line 3 "/home/francesco/Progetti_Personali/Regex_tester/src/Main.vala"
 	return result;
 #line 52 "Main.c"
 }
@@ -56,7 +56,7 @@ int
 main (int argc,
       char ** argv)
 {
-#line 1 "/home/francesco/Progetti_Personali/regex_tester/src/Main.vala"
+#line 1 "/home/francesco/Progetti_Personali/Regex_tester/src/Main.vala"
 	return _vala_main (argv, argc);
 #line 62 "Main.c"
 }

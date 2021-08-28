@@ -65,9 +65,9 @@ Regex_testerHeaderBar*
 regex_tester_header_bar_construct (GType object_type)
 {
 	Regex_testerHeaderBar * self = NULL;
-#line 18 "/home/francesco/Progetti_Personali/regex_tester/src/Widgets/Header.vala"
+#line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Header.vala"
 	self = (Regex_testerHeaderBar*) g_object_new (object_type, NULL);
-#line 18 "/home/francesco/Progetti_Personali/regex_tester/src/Widgets/Header.vala"
+#line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Header.vala"
 	return self;
 #line 73 "Header.c"
 }
@@ -76,7 +76,7 @@ regex_tester_header_bar_construct (GType object_type)
 Regex_testerHeaderBar*
 regex_tester_header_bar_new (void)
 {
-#line 18 "/home/francesco/Progetti_Personali/regex_tester/src/Widgets/Header.vala"
+#line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Header.vala"
 	return regex_tester_header_bar_construct (REGEX_TESTER_TYPE_HEADER_BAR);
 #line 82 "Header.c"
 }
@@ -94,33 +94,33 @@ regex_tester_header_bar_constructor (GType type,
 	GtkButton* _tmp0_;
 	GtkButton* _tmp1_;
 	GtkButton* _tmp2_;
-#line 30 "/home/francesco/Progetti_Personali/regex_tester/src/Widgets/Header.vala"
+#line 30 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Header.vala"
 	parent_class = G_OBJECT_CLASS (regex_tester_header_bar_parent_class);
-#line 30 "/home/francesco/Progetti_Personali/regex_tester/src/Widgets/Header.vala"
+#line 30 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Header.vala"
 	obj = parent_class->constructor (type, n_construct_properties, construct_properties);
-#line 30 "/home/francesco/Progetti_Personali/regex_tester/src/Widgets/Header.vala"
+#line 30 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Header.vala"
 	self = G_TYPE_CHECK_INSTANCE_CAST (obj, REGEX_TESTER_TYPE_HEADER_BAR, Regex_testerHeaderBar);
-#line 31 "/home/francesco/Progetti_Personali/regex_tester/src/Widgets/Header.vala"
+#line 31 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Header.vala"
 	gtk_header_bar_set_title ((GtkHeaderBar*) self, "Regex Tester");
-#line 32 "/home/francesco/Progetti_Personali/regex_tester/src/Widgets/Header.vala"
+#line 32 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Header.vala"
 	gtk_header_bar_set_show_close_button ((GtkHeaderBar*) self, TRUE);
-#line 37 "/home/francesco/Progetti_Personali/regex_tester/src/Widgets/Header.vala"
+#line 37 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Header.vala"
 	_tmp0_ = (GtkButton*) gtk_button_new_from_icon_name ("open-menu", (GtkIconSize) GTK_ICON_SIZE_BUTTON);
-#line 37 "/home/francesco/Progetti_Personali/regex_tester/src/Widgets/Header.vala"
+#line 37 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Header.vala"
 	g_object_ref_sink (_tmp0_);
-#line 37 "/home/francesco/Progetti_Personali/regex_tester/src/Widgets/Header.vala"
+#line 37 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Header.vala"
 	setting_button = _tmp0_;
-#line 38 "/home/francesco/Progetti_Personali/regex_tester/src/Widgets/Header.vala"
+#line 38 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Header.vala"
 	_tmp1_ = setting_button;
-#line 38 "/home/francesco/Progetti_Personali/regex_tester/src/Widgets/Header.vala"
+#line 38 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Header.vala"
 	gtk_widget_set_valign ((GtkWidget*) _tmp1_, GTK_ALIGN_CENTER);
-#line 40 "/home/francesco/Progetti_Personali/regex_tester/src/Widgets/Header.vala"
+#line 40 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Header.vala"
 	_tmp2_ = setting_button;
-#line 40 "/home/francesco/Progetti_Personali/regex_tester/src/Widgets/Header.vala"
+#line 40 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Header.vala"
 	gtk_header_bar_pack_end ((GtkHeaderBar*) self, (GtkWidget*) _tmp2_);
-#line 30 "/home/francesco/Progetti_Personali/regex_tester/src/Widgets/Header.vala"
+#line 30 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Header.vala"
 	_g_object_unref0 (setting_button);
-#line 30 "/home/francesco/Progetti_Personali/regex_tester/src/Widgets/Header.vala"
+#line 30 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Header.vala"
 	return obj;
 #line 126 "Header.c"
 }
@@ -129,9 +129,9 @@ regex_tester_header_bar_constructor (GType type,
 static void
 regex_tester_header_bar_class_init (Regex_testerHeaderBarClass * klass)
 {
-#line 18 "/home/francesco/Progetti_Personali/regex_tester/src/Widgets/Header.vala"
+#line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Header.vala"
 	regex_tester_header_bar_parent_class = g_type_class_peek_parent (klass);
-#line 18 "/home/francesco/Progetti_Personali/regex_tester/src/Widgets/Header.vala"
+#line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Header.vala"
 	G_OBJECT_CLASS (klass)->constructor = regex_tester_header_bar_constructor;
 #line 137 "Header.c"
 }

@@ -1,0 +1,13 @@
+# ninja log v5
+1	5	1630172800	gresource.h	645e92987c592478
+0	6	1630172800	gresource.c	8f712440a53a5ca6
+6	153	1630172800	com.github.fBarbanti.Regex_tester@exe/meson-generated_.._gresource.c.o	e82e649fc7cbfe16
+1	561	1630172801	com.github.fBarbanti.Regex_tester@exe/src/Main.c	e91b3e899fe76d4c
+1	561	1630172801	com.github.fBarbanti.Regex_tester@exe/src/Application.c	e91b3e899fe76d4c
+1	561	1630172801	com.github.fBarbanti.Regex_tester@exe/src/Widgets/Header.c	e91b3e899fe76d4c
+1	561	1630172801	com.github.fBarbanti.Regex_tester@exe/src/Widgets/Window.c	e91b3e899fe76d4c
+562	875	1630172801	com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Main.c.o	5103d0df5a77efc1
+562	886	1630172801	com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Widgets_Header.c.o	bcf807962a8439b
+562	918	1630172801	com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Application.c.o	bccc0e021e95ddd
+563	996	1630172801	com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Widgets_Window.c.o	c460e9c5fa9e6e63
+996	1126	1630172801	com.github.fBarbanti.Regex_tester	fc1190e6e7b59632
