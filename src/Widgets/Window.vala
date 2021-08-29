@@ -106,6 +106,11 @@ public class Regex_tester.Window : Gtk.ApplicationWindow {
 
         // create TextTag
         text_view.buffer.create_tag("match", "background", "#34e3e9");
+        text_view.buffer.create_tag ("marked_first", "background", "#8cd5ff");
+        text_view.buffer.create_tag ("marked_second", "background", "#d1ff82");
+        text_view.buffer.create_tag ("marked_third", "background", "#ff004d");
+
+
 
         var grid = new Gtk.Grid();
         grid.margin = 12;
@@ -198,6 +203,8 @@ public class Regex_tester.Window : Gtk.ApplicationWindow {
                 int pos_end = 0;
 
                 while(match_info.matches()) {
+                    //  GLib.List<RegexTester.GroupItem> group_items = new GLib.List<RegexTester.GroupItem> ();
+
                     for(int i=0; i<match_info.get_match_count(); i++){
                         match_info.fetch_pos(i, out pos_start, out pos_end);
                         //  stdout.printf( "start:%d - end:%d\n-----\n", pos_start, pos_end);
@@ -205,22 +212,36 @@ public class Regex_tester.Window : Gtk.ApplicationWindow {
                         start.set_offset(pos_start - shift_unichar (str_text, pos_start));
                         end.set_offset(pos_end - shift_unichar (str_text, pos_end));
                         
-                        text_view.buffer.apply_tag_by_name("match", start, end);
+                        //  text_view.buffer.apply_tag_by_name("match", start, end);
 
                         string str = match_info.fetch (i);
                         list.append(str);
+
+                        if (i == 0)
+                            text_view.buffer.apply_tag_by_name("marked_first", start, end);
+                        else{
+                            if(str != ""){
+                                if (i == 1)
+                                    text_view.buffer.apply_tag_by_name("marked_second", start, end);
+                                if (i == 2)
+                                    text_view.buffer.apply_tag_by_name("marked_third", start, end);
+                            }
+
+                        }
+
+                        
+                        //  var new_group_item = new RegexTester.GroupItem (str, offset_start, offset_end);
+                        //  group_items.append (new_group_item);
+
+                        // Se il match non appartiene a questo gruppo
+                        
+                        //  print(match_info.fetch_named(str) + "\n");
+                        print(str);
+                        //  stdout.printf(" i: %d, ",i);
                     }
+                    print("\n");
+            
                     num_match ++;
-
-                    //  list.foreach ((entry) => {
-                    //      print(entry + " - ");
-                    //  });
-                    //  print("\n");
-                
-                    //  list.foreach ((entry) => {
-                    //      list.remove(entry);
-                    //  });
-
 
                     match_info.next();
                 }

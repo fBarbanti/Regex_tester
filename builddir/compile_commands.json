@@ -1,36 +1,31 @@
 [
   {
-    "directory": "/home/francesco/Progetti_Personali/Regex_tester/build",
-    "command": "valac -C --debug --debug --pkg gtk+-3.0 --color=always --directory com.github.fBarbanti.Regex_tester@exe --basedir ../ --gresources=../data/gresource.xml ../src/Main.vala ../src/Application.vala ../src/Objects/MatchItem.vala ../src/Widgets/Header.vala ../src/Widgets/Window.vala",
+    "directory": "/home/francesco/Progetti_Personali/Regex_tester/builddir",
+    "command": "valac -C --debug --debug --pkg gtk+-3.0 --color=always --directory com.github.fBarbanti.Regex_tester@exe --basedir ../ --gresources=../data/gresource.xml ../src/Main.vala ../src/Application.vala ../src/Widgets/Header.vala ../src/Widgets/Window.vala",
     "file": "../src/Main.vala"
   },
   {
-    "directory": "/home/francesco/Progetti_Personali/Regex_tester/build",
+    "directory": "/home/francesco/Progetti_Personali/Regex_tester/builddir",
     "command": "cc -Icom.github.fBarbanti.Regex_tester@exe -I. -I.. -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -g -pthread  -MD -MQ 'com.github.fBarbanti.Regex_tester@exe/meson-generated_.._gresource.c.o' -MF 'com.github.fBarbanti.Regex_tester@exe/meson-generated_.._gresource.c.o.d' -o 'com.github.fBarbanti.Regex_tester@exe/meson-generated_.._gresource.c.o' -c gresource.c",
     "file": "gresource.c"
   },
   {
-    "directory": "/home/francesco/Progetti_Personali/Regex_tester/build",
+    "directory": "/home/francesco/Progetti_Personali/Regex_tester/builddir",
     "command": "cc -Icom.github.fBarbanti.Regex_tester@exe -I. -I.. -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -w -g -pthread  -MD -MQ 'com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Main.c.o' -MF 'com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Main.c.o.d' -o 'com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Main.c.o' -c 'com.github.fBarbanti.Regex_tester@exe/src/Main.c'",
     "file": "com.github.fBarbanti.Regex_tester@exe/src/Main.c"
   },
   {
-    "directory": "/home/francesco/Progetti_Personali/Regex_tester/build",
+    "directory": "/home/francesco/Progetti_Personali/Regex_tester/builddir",
     "command": "cc -Icom.github.fBarbanti.Regex_tester@exe -I. -I.. -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -w -g -pthread  -MD -MQ 'com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Application.c.o' -MF 'com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Application.c.o.d' -o 'com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Application.c.o' -c 'com.github.fBarbanti.Regex_tester@exe/src/Application.c'",
     "file": "com.github.fBarbanti.Regex_tester@exe/src/Application.c"
   },
   {
-    "directory": "/home/francesco/Progetti_Personali/Regex_tester/build",
-    "command": "cc -Icom.github.fBarbanti.Regex_tester@exe -I. -I.. -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -w -g -pthread  -MD -MQ 'com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Objects_MatchItem.c.o' -MF 'com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Objects_MatchItem.c.o.d' -o 'com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Objects_MatchItem.c.o' -c 'com.github.fBarbanti.Regex_tester@exe/src/Objects/MatchItem.c'",
-    "file": "com.github.fBarbanti.Regex_tester@exe/src/Objects/MatchItem.c"
-  },
-  {
-    "directory": "/home/francesco/Progetti_Personali/Regex_tester/build",
+    "directory": "/home/francesco/Progetti_Personali/Regex_tester/builddir",
     "command": "cc -Icom.github.fBarbanti.Regex_tester@exe -I. -I.. -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -w -g -pthread  -MD -MQ 'com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Widgets_Header.c.o' -MF 'com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Widgets_Header.c.o.d' -o 'com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Widgets_Header.c.o' -c 'com.github.fBarbanti.Regex_tester@exe/src/Widgets/Header.c'",
     "file": "com.github.fBarbanti.Regex_tester@exe/src/Widgets/Header.c"
   },
   {
-    "directory": "/home/francesco/Progetti_Personali/Regex_tester/build",
+    "directory": "/home/francesco/Progetti_Personali/Regex_tester/builddir",
     "command": "cc -Icom.github.fBarbanti.Regex_tester@exe -I. -I.. -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -w -g -pthread  -MD -MQ 'com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Widgets_Window.c.o' -MF 'com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Widgets_Window.c.o.d' -o 'com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Widgets_Window.c.o' -c 'com.github.fBarbanti.Regex_tester@exe/src/Widgets/Window.c'",
     "file": "com.github.fBarbanti.Regex_tester@exe/src/Widgets/Window.c"
   }

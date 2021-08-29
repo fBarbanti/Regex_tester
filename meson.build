@@ -19,8 +19,11 @@ executable(
     'src/Main.vala',
     'src/Application.vala',
 
+    'src/Objects/MatchItem.vala',
+
     'src/Widgets/Header.vala',
     'src/Widgets/Window.vala',
+
 
     dependencies: [
         dependency('gtk+-3.0')
