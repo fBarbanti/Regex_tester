@@ -4,16 +4,16 @@
 /*
 * Copyright (c) 2021 Francesco Barbanti
 *
-* Akira is free software: you can redistribute it and/or modify
+* Regex Tester is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
 * the Free Software Foundation, either version 3 of the License, or
 * (at your option) any later version.
-* Akira is distributed in the hope that it will be useful,
+* Regex Tester is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 * GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License
-* along with Akira. If not, see <https://www.gnu.org/licenses/>.
+* along with Regex Tester. If not, see <https://www.gnu.org/licenses/>.
 *
 * Authored by: Francesco Barbanti <francesco.barbanti.97@gmail.com>
 */
@@ -79,9 +79,9 @@ Application*
 application_construct (GType object_type)
 {
 	Application * self = NULL;
-#line 21 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
-	self = (Application*) g_object_new (object_type, "application-id", "com.github.fBarbanti.Regex_tester", "flags", G_APPLICATION_FLAGS_NONE, NULL);
 #line 20 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
+	self = (Application*) g_object_new (object_type, "application-id", "com.github.fBarbanti.Regex_tester", "flags", G_APPLICATION_FLAGS_NONE, NULL);
+#line 19 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
 	return self;
 #line 87 "Application.c"
 }
@@ -90,7 +90,7 @@ application_construct (GType object_type)
 Application*
 application_new (void)
 {
-#line 20 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
+#line 19 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
 	return application_construct (TYPE_APPLICATION);
 #line 96 "Application.c"
 }
@@ -105,29 +105,29 @@ application_real_activate (GApplication* base)
 	GdkScreen* _tmp1_;
 	Regex_testerWindow* window = NULL;
 	Regex_testerWindow* _tmp2_;
-#line 27 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
+#line 26 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
 	self = (Application*) base;
-#line 29 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
+#line 28 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
 	_tmp0_ = gtk_css_provider_new ();
-#line 29 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
+#line 28 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
 	css_provider = _tmp0_;
-#line 30 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
+#line 29 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
 	gtk_css_provider_load_from_resource (css_provider, "/com/github/fBarbanti/Regex_tester/styles/style.css");
-#line 31 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
+#line 30 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
 	_tmp1_ = gdk_screen_get_default ();
-#line 31 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
+#line 30 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
 	gtk_style_context_add_provider_for_screen (_tmp1_, (GtkStyleProvider*) css_provider, (guint) GTK_STYLE_PROVIDER_PRIORITY_USER);
-#line 33 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
+#line 32 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
 	_tmp2_ = regex_tester_window_new ((GtkApplication*) self);
-#line 33 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
+#line 32 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
 	g_object_ref_sink (_tmp2_);
-#line 33 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
+#line 32 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
 	window = _tmp2_;
-#line 35 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
+#line 34 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
 	gtk_application_add_window ((GtkApplication*) self, (GtkWindow*) window);
-#line 27 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
+#line 26 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
 	_g_object_unref0 (window);
-#line 27 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
+#line 26 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
 	_g_object_unref0 (css_provider);
 #line 133 "Application.c"
 }
@@ -136,9 +136,9 @@ application_real_activate (GApplication* base)
 static void
 application_class_init (ApplicationClass * klass)
 {
-#line 19 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
+#line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
 	application_parent_class = g_type_class_peek_parent (klass);
-#line 19 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
+#line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Application.vala"
 	((GApplicationClass *) klass)->activate = (void (*) (GApplication*)) application_real_activate;
 #line 144 "Application.c"
 }

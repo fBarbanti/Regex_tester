@@ -18,11 +18,13 @@ executable(
     
     'src/Main.vala',
     'src/Application.vala',
+    'src/Costants.vala',
 
     'src/Objects/MatchItem.vala',
 
     'src/Widgets/Header.vala',
     'src/Widgets/Window.vala',
+    'src/Widgets/ListBoxItem.vala',
 
 
     dependencies: [

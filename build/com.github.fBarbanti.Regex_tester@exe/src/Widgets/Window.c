@@ -4,16 +4,16 @@
 /*
 * Copyright (c) 2021 Francesco Barbanti
 *
-* Akira is free software: you can redistribute it and/or modify
+* Regex Tester is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
 * the Free Software Foundation, either version 3 of the License, or
 * (at your option) any later version.
-* Akira is distributed in the hope that it will be useful,
+* Regex Tester is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 * GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License
-* along with Akira. If not, see <https://www.gnu.org/licenses/>.
+* along with Regex Tester. If not, see <https://www.gnu.org/licenses/>.
 *
 * Authored by: Francesco Barbanti <francesco.barbanti.97@gmail.com>
 */
@@ -118,6 +118,10 @@ static void _regex_tester_window_apply_regex_gtk_editable_changed (GtkEditable* 
 static void _regex_tester_window___lambda5_ (Regex_testerWindow* self);
 static void __regex_tester_window___lambda5__gtk_text_buffer_changed (GtkTextBuffer* _sender,
                                                                gpointer self);
+#define REGEX_TESTER_COSTANTS_color0 "#FFADAD"
+#define REGEX_TESTER_COSTANTS_color_group1 "#FFD6A5"
+#define REGEX_TESTER_COSTANTS_color_group2 "#CAFFBF"
+#define REGEX_TESTER_COSTANTS_color_group3 "#9BF6FF"
 GType regex_tester_header_bar_get_type (void) G_GNUC_CONST;
 Regex_testerHeaderBar* regex_tester_header_bar_new (void);
 Regex_testerHeaderBar* regex_tester_header_bar_construct (GType object_type);
@@ -135,7 +139,7 @@ regex_tester_window_construct (GType object_type,
 	self = (Regex_testerWindow*) g_object_new (object_type, "application", app, NULL);
 #line 31 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	return self;
-#line 139 "Window.c"
+#line 143 "Window.c"
 }
 
 
@@ -144,25 +148,25 @@ regex_tester_window_new (GtkApplication* app)
 {
 #line 31 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	return regex_tester_window_construct (REGEX_TESTER_TYPE_WINDOW, app);
-#line 148 "Window.c"
+#line 152 "Window.c"
 }
 
 
 static void
 _g_free0_ (gpointer var)
 {
-#line 246 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 245 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	var = (g_free (var), NULL);
-#line 157 "Window.c"
+#line 161 "Window.c"
 }
 
 
 static inline void
 _g_list_free__g_free0_ (GList* self)
 {
-#line 246 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 245 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	g_list_free_full (self, (GDestroyNotify) _g_free0_);
-#line 166 "Window.c"
+#line 170 "Window.c"
 }
 
 
@@ -194,111 +198,111 @@ regex_tester_window_apply_regex (Regex_testerWindow* self)
 	GMatchInfo* match_info = NULL;
 	const gchar* _tmp19_;
 	GtkEntry* _tmp20_;
-	GtkLabel* _tmp74_;
-	gint _tmp75_;
-	gchar* _tmp76_;
-	gchar* _tmp77_;
-	gchar* _tmp78_;
-	gchar* _tmp79_;
+	GtkLabel* _tmp84_;
+	gint _tmp85_;
+	gchar* _tmp86_;
+	gchar* _tmp87_;
+	gchar* _tmp88_;
+	gchar* _tmp89_;
 	GError* _inner_error0_ = NULL;
-#line 164 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 170 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	g_return_if_fail (self != NULL);
-#line 166 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 172 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp0_ = self->priv->entry_regex;
-#line 166 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 172 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp1_ = gtk_entry_get_text (_tmp0_);
-#line 166 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 172 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp2_ = _tmp1_;
-#line 166 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 172 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp3_ = g_strdup (_tmp2_);
-#line 166 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 172 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	str_regex = _tmp3_;
-#line 167 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 173 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp4_ = self->priv->text_view;
-#line 167 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 173 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp5_ = gtk_text_view_get_buffer (_tmp4_);
-#line 167 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 173 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp6_ = _tmp5_;
-#line 167 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 173 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	g_object_get (_tmp6_, "text", &_tmp7_, NULL);
-#line 167 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 173 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp8_ = _tmp7_;
-#line 167 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 173 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	str_text = _tmp8_;
-#line 171 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	_tmp9_ = self->priv->text_view;
-#line 171 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	_tmp10_ = gtk_text_view_get_buffer (_tmp9_);
-#line 171 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	_tmp11_ = _tmp10_;
-#line 171 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	gtk_text_buffer_get_bounds (_tmp11_, &_tmp12_, &_tmp13_);
-#line 171 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	start = _tmp12_;
-#line 171 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	end = _tmp13_;
-#line 174 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	_tmp14_ = self->priv->text_view;
-#line 174 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	regex_tester_window_remove_tags (self, _tmp14_);
 #line 177 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+	_tmp9_ = self->priv->text_view;
+#line 177 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+	_tmp10_ = gtk_text_view_get_buffer (_tmp9_);
+#line 177 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+	_tmp11_ = _tmp10_;
+#line 177 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+	gtk_text_buffer_get_bounds (_tmp11_, &_tmp12_, &_tmp13_);
+#line 177 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+	start = _tmp12_;
+#line 177 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+	end = _tmp13_;
+#line 180 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+	_tmp14_ = self->priv->text_view;
+#line 180 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+	regex_tester_window_remove_tags (self, _tmp14_);
+#line 183 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	self->priv->num_match = 0;
-#line 180 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 186 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp15_ = self->priv->list_box;
-#line 180 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 186 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp16_ = gtk_container_get_children ((GtkContainer*) _tmp15_);
-#line 251 "Window.c"
+#line 255 "Window.c"
 	{
 		GList* match_collection = NULL;
 		GList* match_it = NULL;
-#line 180 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 186 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		match_collection = _tmp16_;
-#line 180 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 186 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		for (match_it = match_collection; match_it != NULL; match_it = match_it->next) {
-#line 259 "Window.c"
-			GtkWidget* match = NULL;
-#line 180 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-			match = (GtkWidget*) match_it->data;
 #line 263 "Window.c"
+			GtkWidget* match = NULL;
+#line 186 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+			match = (GtkWidget*) match_it->data;
+#line 267 "Window.c"
 			{
 				GtkListBox* _tmp17_;
 				GtkWidget* _tmp18_;
-#line 181 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 187 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 				_tmp17_ = self->priv->list_box;
-#line 181 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 187 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 				_tmp18_ = match;
-#line 181 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 187 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 				gtk_container_remove ((GtkContainer*) _tmp17_, _tmp18_);
-#line 273 "Window.c"
+#line 277 "Window.c"
 			}
 		}
-#line 180 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 186 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		(match_collection == NULL) ? NULL : (match_collection = (g_list_free (match_collection), NULL));
-#line 278 "Window.c"
+#line 282 "Window.c"
 	}
-#line 187 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	_tmp19_ = str_regex;
-#line 187 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	if (g_strcmp0 (_tmp19_, "") == 0) {
-#line 188 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-		_g_match_info_unref0 (match_info);
-#line 188 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-		_g_regex_unref0 (regex);
-#line 188 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-		_g_free0 (str_text);
-#line 188 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-		_g_free0 (str_regex);
-#line 188 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-		return;
-#line 294 "Window.c"
-	}
-#line 192 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	_tmp20_ = self->priv->entry_regex;
-#line 192 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	gtk_entry_set_icon_from_icon_name (_tmp20_, GTK_ENTRY_ICON_SECONDARY, NULL);
 #line 193 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+	_tmp19_ = str_regex;
+#line 193 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+	if (g_strcmp0 (_tmp19_, "") == 0) {
+#line 194 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+		_g_match_info_unref0 (match_info);
+#line 194 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+		_g_regex_unref0 (regex);
+#line 194 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+		_g_free0 (str_text);
+#line 194 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+		_g_free0 (str_regex);
+#line 194 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+		return;
+#line 298 "Window.c"
+	}
+#line 198 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+	_tmp20_ = self->priv->entry_regex;
+#line 198 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+	gtk_entry_set_icon_from_icon_name (_tmp20_, GTK_ENTRY_ICON_SECONDARY, NULL);
+#line 199 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	regex_tester_window_set_compile_flags (self);
-#line 302 "Window.c"
+#line 306 "Window.c"
 	{
 		GRegex* _tmp21_ = NULL;
 		const gchar* _tmp22_;
@@ -310,370 +314,421 @@ regex_tester_window_apply_regex (Regex_testerWindow* self)
 		const gchar* _tmp27_;
 		GMatchInfo* _tmp28_ = NULL;
 		gboolean _tmp29_;
-#line 197 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 203 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		_tmp22_ = str_regex;
-#line 197 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 203 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		_tmp23_ = self->priv->regex_compile_flags;
-#line 197 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 203 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		_tmp24_ = g_regex_new (_tmp22_, _tmp23_, 0, &_inner_error0_);
-#line 197 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 203 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		_tmp21_ = _tmp24_;
-#line 197 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 203 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 197 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 203 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 			if (_inner_error0_->domain == G_REGEX_ERROR) {
-#line 326 "Window.c"
+#line 330 "Window.c"
 				goto __catch0_g_regex_error;
 			}
-#line 197 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 203 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 			_g_match_info_unref0 (match_info);
-#line 197 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 203 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 			_g_regex_unref0 (regex);
-#line 197 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 203 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 			_g_free0 (str_text);
-#line 197 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 203 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 			_g_free0 (str_regex);
-#line 197 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 203 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 			g_critical ("file %s: line %d: unexpected error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 197 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 203 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 			g_clear_error (&_inner_error0_);
-#line 197 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 203 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 			return;
-#line 343 "Window.c"
+#line 347 "Window.c"
 		}
-#line 197 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 203 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		_tmp25_ = _tmp21_;
-#line 197 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 203 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		_tmp21_ = NULL;
-#line 197 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 203 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		_g_regex_unref0 (regex);
-#line 197 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 203 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		regex = _tmp25_;
-#line 198 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 204 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		list = NULL;
-#line 200 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 206 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		_tmp26_ = regex;
-#line 200 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 206 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		_tmp27_ = str_text;
-#line 200 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 206 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		_tmp29_ = g_regex_match (_tmp26_, _tmp27_, 0, &_tmp28_);
-#line 200 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 206 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		_g_match_info_unref0 (match_info);
-#line 200 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 206 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		match_info = _tmp28_;
-#line 200 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 206 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		if (_tmp29_) {
-#line 367 "Window.c"
+#line 371 "Window.c"
 			gint pos_start = 0;
 			gint pos_end = 0;
-#line 202 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+			GtkListBox* _tmp81_;
+#line 208 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 			pos_start = 0;
-#line 203 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 209 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 			pos_end = 0;
-#line 205 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 211 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 			while (TRUE) {
-#line 376 "Window.c"
+#line 381 "Window.c"
 				GMatchInfo* _tmp30_;
-				gint _tmp70_;
-				GMatchInfo* _tmp71_;
-#line 205 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+				GtkGrid* match_grid = NULL;
+				GtkGrid* _tmp31_;
+				GtkListBox* _tmp74_;
+				GtkSeparator* _tmp75_;
+				GtkSeparator* _tmp76_;
+				GtkListBox* _tmp77_;
+				GtkGrid* _tmp78_;
+				gint _tmp79_;
+				GMatchInfo* _tmp80_;
+#line 211 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 				_tmp30_ = match_info;
-#line 205 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 211 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 				if (!g_match_info_matches (_tmp30_)) {
-#line 205 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 211 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 					break;
-#line 386 "Window.c"
+#line 398 "Window.c"
 				}
+#line 214 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+				_tmp31_ = (GtkGrid*) gtk_grid_new ();
+#line 214 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+				g_object_ref_sink (_tmp31_);
+#line 214 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+				match_grid = _tmp31_;
+#line 406 "Window.c"
 				{
 					gint i = 0;
-#line 208 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 216 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 					i = 0;
-#line 392 "Window.c"
+#line 411 "Window.c"
 					{
-						gboolean _tmp31_ = FALSE;
-#line 208 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-						_tmp31_ = TRUE;
-#line 208 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+						gboolean _tmp32_ = FALSE;
+#line 216 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+						_tmp32_ = TRUE;
+#line 216 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 						while (TRUE) {
-#line 399 "Window.c"
-							gint _tmp33_;
-							GMatchInfo* _tmp34_;
+#line 418 "Window.c"
+							gint _tmp34_;
 							GMatchInfo* _tmp35_;
-							gint _tmp36_;
-							gint _tmp37_ = 0;
+							GMatchInfo* _tmp36_;
+							gint _tmp37_;
 							gint _tmp38_ = 0;
-							gint _tmp39_;
-							const gchar* _tmp40_;
-							gint _tmp41_;
+							gint _tmp39_ = 0;
+							gint _tmp40_;
+							const gchar* _tmp41_;
 							gint _tmp42_;
-							const gchar* _tmp43_;
-							gint _tmp44_;
+							gint _tmp43_;
+							const gchar* _tmp44_;
+							gint _tmp45_;
 							gchar* str = NULL;
-							GMatchInfo* _tmp45_;
-							gint _tmp46_;
-							gchar* _tmp47_;
-							const gchar* _tmp48_;
-							gchar* _tmp49_;
-							gint _tmp50_;
-							const gchar* _tmp69_;
-#line 208 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-							if (!_tmp31_) {
-#line 422 "Window.c"
-								gint _tmp32_;
-#line 208 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-								_tmp32_ = i;
-#line 208 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-								i = _tmp32_ + 1;
-#line 428 "Window.c"
-							}
-#line 208 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-							_tmp31_ = FALSE;
-#line 208 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-							_tmp33_ = i;
-#line 208 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-							_tmp34_ = match_info;
-#line 208 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-							if (!(_tmp33_ < g_match_info_get_match_count (_tmp34_))) {
-#line 208 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-								break;
+							GMatchInfo* _tmp46_;
+							gint _tmp47_;
+							gchar* _tmp48_;
+							const gchar* _tmp49_;
+							gchar* _tmp50_;
+							const gchar* _tmp51_;
+#line 216 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+							if (!_tmp32_) {
 #line 440 "Window.c"
+								gint _tmp33_;
+#line 216 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+								_tmp33_ = i;
+#line 216 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+								i = _tmp33_ + 1;
+#line 446 "Window.c"
 							}
-#line 209 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 216 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+							_tmp32_ = FALSE;
+#line 216 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+							_tmp34_ = i;
+#line 216 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 							_tmp35_ = match_info;
-#line 209 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-							_tmp36_ = i;
-#line 209 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-							g_match_info_fetch_pos (_tmp35_, _tmp36_, &_tmp37_, &_tmp38_);
-#line 209 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-							pos_start = _tmp37_;
-#line 209 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-							pos_end = _tmp38_;
-#line 212 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-							_tmp39_ = pos_start;
-#line 212 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-							_tmp40_ = str_text;
-#line 212 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-							_tmp41_ = pos_start;
-#line 212 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-							gtk_text_iter_set_offset (&start, _tmp39_ - regex_tester_window_shift_unichar (self, _tmp40_, _tmp41_));
-#line 213 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-							_tmp42_ = pos_end;
-#line 213 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-							_tmp43_ = str_text;
-#line 213 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-							_tmp44_ = pos_end;
-#line 213 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-							gtk_text_iter_set_offset (&end, _tmp42_ - regex_tester_window_shift_unichar (self, _tmp43_, _tmp44_));
-#line 217 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-							_tmp45_ = match_info;
-#line 217 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-							_tmp46_ = i;
-#line 217 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-							_tmp47_ = g_match_info_fetch (_tmp45_, _tmp46_);
-#line 217 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-							str = _tmp47_;
-#line 218 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-							_tmp48_ = str;
-#line 218 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-							_tmp49_ = g_strdup (_tmp48_);
-#line 218 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-							list = g_list_append (list, _tmp49_);
-#line 220 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-							_tmp50_ = i;
-#line 220 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-							if (_tmp50_ == 0) {
-#line 486 "Window.c"
-								GtkTextView* _tmp51_;
-								GtkTextBuffer* _tmp52_;
-								GtkTextBuffer* _tmp53_;
-								GtkTextIter _tmp54_;
-								GtkTextIter _tmp55_;
-#line 221 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-								_tmp51_ = self->priv->text_view;
-#line 221 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-								_tmp52_ = gtk_text_view_get_buffer (_tmp51_);
-#line 221 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-								_tmp53_ = _tmp52_;
-#line 221 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-								_tmp54_ = start;
-#line 221 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-								_tmp55_ = end;
-#line 221 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-								gtk_text_buffer_apply_tag_by_name (_tmp53_, "marked_first", &_tmp54_, &_tmp55_);
-#line 504 "Window.c"
-							} else {
-								const gchar* _tmp56_;
-#line 223 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-								_tmp56_ = str;
-#line 223 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-								if (g_strcmp0 (_tmp56_, "") != 0) {
-#line 511 "Window.c"
-									gint _tmp57_;
-									gint _tmp63_;
-#line 224 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-									_tmp57_ = i;
-#line 224 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-									if (_tmp57_ == 1) {
-#line 518 "Window.c"
-										GtkTextView* _tmp58_;
-										GtkTextBuffer* _tmp59_;
-										GtkTextBuffer* _tmp60_;
-										GtkTextIter _tmp61_;
-										GtkTextIter _tmp62_;
-#line 225 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-										_tmp58_ = self->priv->text_view;
-#line 225 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-										_tmp59_ = gtk_text_view_get_buffer (_tmp58_);
-#line 225 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-										_tmp60_ = _tmp59_;
-#line 225 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-										_tmp61_ = start;
-#line 225 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-										_tmp62_ = end;
-#line 225 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-										gtk_text_buffer_apply_tag_by_name (_tmp60_, "marked_second", &_tmp61_, &_tmp62_);
-#line 536 "Window.c"
-									}
-#line 226 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-									_tmp63_ = i;
-#line 226 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-									if (_tmp63_ == 2) {
-#line 542 "Window.c"
-										GtkTextView* _tmp64_;
-										GtkTextBuffer* _tmp65_;
-										GtkTextBuffer* _tmp66_;
-										GtkTextIter _tmp67_;
-										GtkTextIter _tmp68_;
-#line 227 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-										_tmp64_ = self->priv->text_view;
-#line 227 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-										_tmp65_ = gtk_text_view_get_buffer (_tmp64_);
-#line 227 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-										_tmp66_ = _tmp65_;
-#line 227 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-										_tmp67_ = start;
-#line 227 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-										_tmp68_ = end;
-#line 227 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-										gtk_text_buffer_apply_tag_by_name (_tmp66_, "marked_third", &_tmp67_, &_tmp68_);
-#line 560 "Window.c"
-									}
-								}
+#line 216 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+							if (!(_tmp34_ < g_match_info_get_match_count (_tmp35_))) {
+#line 216 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+								break;
+#line 458 "Window.c"
 							}
-#line 239 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-							_tmp69_ = str;
-#line 239 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-							g_print ("%s", _tmp69_);
-#line 208 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 217 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+							_tmp36_ = match_info;
+#line 217 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+							_tmp37_ = i;
+#line 217 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+							g_match_info_fetch_pos (_tmp36_, _tmp37_, &_tmp38_, &_tmp39_);
+#line 217 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+							pos_start = _tmp38_;
+#line 217 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+							pos_end = _tmp39_;
+#line 220 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+							_tmp40_ = pos_start;
+#line 220 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+							_tmp41_ = str_text;
+#line 220 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+							_tmp42_ = pos_start;
+#line 220 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+							gtk_text_iter_set_offset (&start, _tmp40_ - regex_tester_window_shift_unichar (self, _tmp41_, _tmp42_));
+#line 221 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+							_tmp43_ = pos_end;
+#line 221 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+							_tmp44_ = str_text;
+#line 221 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+							_tmp45_ = pos_end;
+#line 221 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+							gtk_text_iter_set_offset (&end, _tmp43_ - regex_tester_window_shift_unichar (self, _tmp44_, _tmp45_));
+#line 223 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+							_tmp46_ = match_info;
+#line 223 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+							_tmp47_ = i;
+#line 223 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+							_tmp48_ = g_match_info_fetch (_tmp46_, _tmp47_);
+#line 223 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+							str = _tmp48_;
+#line 224 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+							_tmp49_ = str;
+#line 224 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+							_tmp50_ = g_strdup (_tmp49_);
+#line 224 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+							list = g_list_append (list, _tmp50_);
+#line 227 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+							_tmp51_ = str;
+#line 227 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+							if (g_strcmp0 (_tmp51_, "") != 0) {
+#line 504 "Window.c"
+								gint _tmp52_;
+								GtkGrid* _tmp69_;
+								const gchar* _tmp70_;
+								GtkLabel* _tmp71_;
+								GtkLabel* _tmp72_;
+								gint _tmp73_;
+#line 229 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+								_tmp52_ = i;
+#line 229 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+								if (_tmp52_ == 0) {
+#line 515 "Window.c"
+									GtkTextView* _tmp53_;
+									GtkTextBuffer* _tmp54_;
+									GtkTextBuffer* _tmp55_;
+									GtkTextIter _tmp56_;
+									GtkTextIter _tmp57_;
+#line 230 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+									_tmp53_ = self->priv->text_view;
+#line 230 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+									_tmp54_ = gtk_text_view_get_buffer (_tmp53_);
+#line 230 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+									_tmp55_ = _tmp54_;
+#line 230 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+									_tmp56_ = start;
+#line 230 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+									_tmp57_ = end;
+#line 230 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+									gtk_text_buffer_apply_tag_by_name (_tmp55_, "color0", &_tmp56_, &_tmp57_);
+#line 533 "Window.c"
+								} else {
+									gchar* s = NULL;
+									gint _tmp58_;
+									gchar* _tmp59_;
+									gchar* _tmp60_;
+									gchar* _tmp61_;
+									gchar* _tmp62_;
+									GtkTextView* _tmp63_;
+									GtkTextBuffer* _tmp64_;
+									GtkTextBuffer* _tmp65_;
+									const gchar* _tmp66_;
+									GtkTextIter _tmp67_;
+									GtkTextIter _tmp68_;
+#line 233 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+									_tmp58_ = i;
+#line 233 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+									_tmp59_ = g_strdup_printf ("%i", _tmp58_);
+#line 233 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+									_tmp60_ = _tmp59_;
+#line 233 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+									_tmp61_ = g_strconcat ("group", _tmp60_, NULL);
+#line 233 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+									_tmp62_ = _tmp61_;
+#line 233 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+									_g_free0 (_tmp60_);
+#line 233 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+									s = _tmp62_;
+#line 234 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+									_tmp63_ = self->priv->text_view;
+#line 234 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+									_tmp64_ = gtk_text_view_get_buffer (_tmp63_);
+#line 234 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+									_tmp65_ = _tmp64_;
+#line 234 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+									_tmp66_ = s;
+#line 234 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+									_tmp67_ = start;
+#line 234 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+									_tmp68_ = end;
+#line 234 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+									gtk_text_buffer_apply_tag_by_name (_tmp65_, _tmp66_, &_tmp67_, &_tmp68_);
+#line 229 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+									_g_free0 (s);
+#line 577 "Window.c"
+								}
+#line 237 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+								_tmp69_ = match_grid;
+#line 237 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+								_tmp70_ = str;
+#line 237 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+								_tmp71_ = (GtkLabel*) gtk_label_new (_tmp70_);
+#line 237 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+								g_object_ref_sink (_tmp71_);
+#line 237 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+								_tmp72_ = _tmp71_;
+#line 237 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+								_tmp73_ = i;
+#line 237 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+								gtk_grid_attach (_tmp69_, (GtkWidget*) _tmp72_, 0, _tmp73_, 1, 1);
+#line 237 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+								_g_object_unref0 (_tmp72_);
+#line 595 "Window.c"
+							}
+#line 216 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 							_g_free0 (str);
-#line 570 "Window.c"
+#line 599 "Window.c"
 						}
 					}
 				}
-#line 242 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-				g_print ("\n");
-#line 244 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-				_tmp70_ = self->priv->num_match;
-#line 244 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-				self->priv->num_match = _tmp70_ + 1;
-#line 246 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-				_tmp71_ = match_info;
-#line 246 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-				g_match_info_next (_tmp71_, &_inner_error0_);
-#line 246 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 240 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+				_tmp74_ = self->priv->list_box;
+#line 240 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+				_tmp75_ = (GtkSeparator*) gtk_separator_new (GTK_ORIENTATION_HORIZONTAL);
+#line 240 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+				g_object_ref_sink (_tmp75_);
+#line 240 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+				_tmp76_ = _tmp75_;
+#line 240 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+				gtk_container_add ((GtkContainer*) _tmp74_, (GtkWidget*) _tmp76_);
+#line 240 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+				_g_object_unref0 (_tmp76_);
+#line 241 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+				_tmp77_ = self->priv->list_box;
+#line 241 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+				_tmp78_ = match_grid;
+#line 241 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+				gtk_container_add ((GtkContainer*) _tmp77_, (GtkWidget*) _tmp78_);
+#line 243 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+				_tmp79_ = self->priv->num_match;
+#line 243 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+				self->priv->num_match = _tmp79_ + 1;
+#line 245 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+				_tmp80_ = match_info;
+#line 245 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+				g_match_info_next (_tmp80_, &_inner_error0_);
+#line 245 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 				if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 246 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 245 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+					_g_object_unref0 (match_grid);
+#line 245 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 					(list == NULL) ? NULL : (list = (_g_list_free__g_free0_ (list), NULL));
-#line 246 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 245 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 					_g_regex_unref0 (_tmp21_);
-#line 246 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 245 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 					if (_inner_error0_->domain == G_REGEX_ERROR) {
-#line 592 "Window.c"
+#line 639 "Window.c"
 						goto __catch0_g_regex_error;
 					}
-#line 246 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 245 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 					_g_match_info_unref0 (match_info);
-#line 246 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 245 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 					_g_regex_unref0 (regex);
-#line 246 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 245 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 					_g_free0 (str_text);
-#line 246 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 245 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 					_g_free0 (str_regex);
-#line 246 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 245 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 					g_critical ("file %s: line %d: unexpected error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 246 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 245 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 					g_clear_error (&_inner_error0_);
-#line 246 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 245 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 					return;
-#line 609 "Window.c"
+#line 656 "Window.c"
 				}
+#line 211 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+				_g_object_unref0 (match_grid);
+#line 660 "Window.c"
 			}
+#line 247 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+			_tmp81_ = self->priv->list_box;
+#line 247 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+			gtk_widget_show_all ((GtkWidget*) _tmp81_);
+#line 666 "Window.c"
 		}
-#line 196 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 202 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		(list == NULL) ? NULL : (list = (_g_list_free__g_free0_ (list), NULL));
-#line 196 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 202 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		_g_regex_unref0 (_tmp21_);
-#line 617 "Window.c"
+#line 672 "Window.c"
 	}
 	goto __finally0;
 	__catch0_g_regex_error:
 	{
 		GError* re = NULL;
-		GtkEntry* _tmp72_;
-		GtkEntry* _tmp73_;
-#line 196 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+		GtkEntry* _tmp82_;
+		GtkEntry* _tmp83_;
+#line 202 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		re = _inner_error0_;
-#line 196 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 202 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		_inner_error0_ = NULL;
 #line 253 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-		_tmp72_ = self->priv->entry_regex;
+		_tmp82_ = self->priv->entry_regex;
 #line 253 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-		gtk_entry_set_icon_from_icon_name (_tmp72_, GTK_ENTRY_ICON_SECONDARY, "dialog-error");
+		gtk_entry_set_icon_from_icon_name (_tmp82_, GTK_ENTRY_ICON_SECONDARY, "dialog-error");
 #line 254 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-		_tmp73_ = self->priv->entry_regex;
+		_tmp83_ = self->priv->entry_regex;
 #line 254 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-		gtk_entry_set_icon_tooltip_markup (_tmp73_, GTK_ENTRY_ICON_SECONDARY, "EXEC ERROR: Invalid regular expression");
-#line 196 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+		gtk_entry_set_icon_tooltip_markup (_tmp83_, GTK_ENTRY_ICON_SECONDARY, "EXEC ERROR: Invalid regular expression");
+#line 202 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		_g_error_free0 (re);
-#line 639 "Window.c"
+#line 694 "Window.c"
 	}
 	__finally0:
-#line 196 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 202 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	if (G_UNLIKELY (_inner_error0_ != NULL)) {
-#line 196 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 202 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		_g_match_info_unref0 (match_info);
-#line 196 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 202 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		_g_regex_unref0 (regex);
-#line 196 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 202 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		_g_free0 (str_text);
-#line 196 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 202 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		_g_free0 (str_regex);
-#line 196 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 202 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error0_->message, g_quark_to_string (_inner_error0_->domain), _inner_error0_->code);
-#line 196 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 202 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		g_clear_error (&_inner_error0_);
-#line 196 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 202 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		return;
-#line 658 "Window.c"
+#line 713 "Window.c"
 	}
 #line 257 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	_tmp74_ = self->priv->label_num_match;
+	_tmp84_ = self->priv->label_num_match;
 #line 257 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	_tmp75_ = self->priv->num_match;
+	_tmp85_ = self->priv->num_match;
 #line 257 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	_tmp76_ = g_strdup_printf ("%i", _tmp75_);
+	_tmp86_ = g_strdup_printf ("%i", _tmp85_);
 #line 257 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	_tmp77_ = _tmp76_;
+	_tmp87_ = _tmp86_;
 #line 257 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	_tmp78_ = g_strconcat (_tmp77_, " Match!", NULL);
+	_tmp88_ = g_strconcat (_tmp87_, " Match!", NULL);
 #line 257 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	_tmp79_ = _tmp78_;
+	_tmp89_ = _tmp88_;
 #line 257 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	gtk_label_set_label (_tmp74_, _tmp79_);
+	gtk_label_set_label (_tmp84_, _tmp89_);
 #line 257 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	_g_free0 (_tmp79_);
+	_g_free0 (_tmp89_);
 #line 257 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	_g_free0 (_tmp77_);
+	_g_free0 (_tmp87_);
 #line 259 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_g_match_info_unref0 (match_info);
 #line 259 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
@@ -684,7 +739,7 @@ regex_tester_window_apply_regex (Regex_testerWindow* self)
 	_g_free0 (str_regex);
 #line 259 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	return;
-#line 688 "Window.c"
+#line 743 "Window.c"
 }
 
 
@@ -695,7 +750,7 @@ block1_data_ref (Block1Data* _data1_)
 	g_atomic_int_inc (&_data1_->_ref_count_);
 #line 262 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	return _data1_;
-#line 699 "Window.c"
+#line 754 "Window.c"
 }
 
 
@@ -706,7 +761,7 @@ block1_data_unref (void * _userdata_)
 	_data1_ = (Block1Data*) _userdata_;
 #line 262 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	if (g_atomic_int_dec_and_test (&_data1_->_ref_count_)) {
-#line 710 "Window.c"
+#line 765 "Window.c"
 		Regex_testerWindow* self;
 #line 262 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		self = _data1_->self;
@@ -716,7 +771,7 @@ block1_data_unref (void * _userdata_)
 		_g_object_unref0 (self);
 #line 262 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		g_slice_free (Block1Data, _data1_);
-#line 720 "Window.c"
+#line 775 "Window.c"
 	}
 }
 
@@ -728,7 +783,7 @@ _regex_tester_window_apply_regex_g_object_notify (GObject* _sender,
 {
 #line 285 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	regex_tester_window_apply_regex ((Regex_testerWindow*) self);
-#line 732 "Window.c"
+#line 787 "Window.c"
 }
 
 
@@ -737,7 +792,7 @@ _g_object_ref0 (gpointer self)
 {
 #line 299 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	return self ? g_object_ref (self) : NULL;
-#line 741 "Window.c"
+#line 796 "Window.c"
 }
 
 
@@ -749,7 +804,7 @@ __lambda4_ (Block1Data* _data1_)
 	self = _data1_->self;
 #line 317 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	gtk_widget_show_all ((GtkWidget*) _data1_->popover_flag);
-#line 753 "Window.c"
+#line 808 "Window.c"
 }
 
 
@@ -759,7 +814,7 @@ ___lambda4__gtk_button_clicked (GtkButton* _sender,
 {
 #line 317 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	__lambda4_ (self);
-#line 763 "Window.c"
+#line 818 "Window.c"
 }
 
 
@@ -984,7 +1039,7 @@ regex_tester_window_create_flag_choose (Regex_testerWindow* self)
 	_data1_ = NULL;
 #line 321 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	return result;
-#line 988 "Window.c"
+#line 1043 "Window.c"
 }
 
 
@@ -1001,53 +1056,53 @@ regex_tester_window_set_compile_flags (Regex_testerWindow* self)
 	_tmp0_ = self->priv->regex_compile_flags;
 #line 326 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	if ((_tmp0_ & G_REGEX_CASELESS) == G_REGEX_CASELESS) {
-#line 1005 "Window.c"
+#line 1060 "Window.c"
 		GRegexCompileFlags _tmp1_;
 #line 327 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		_tmp1_ = self->priv->regex_compile_flags;
 #line 327 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		self->priv->regex_compile_flags = _tmp1_ - G_REGEX_CASELESS;
-#line 1011 "Window.c"
+#line 1066 "Window.c"
 	}
 #line 328 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp2_ = self->priv->regex_compile_flags;
 #line 328 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	if ((_tmp2_ & G_REGEX_MULTILINE) == G_REGEX_MULTILINE) {
-#line 1017 "Window.c"
+#line 1072 "Window.c"
 		GRegexCompileFlags _tmp3_;
 #line 329 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		_tmp3_ = self->priv->regex_compile_flags;
 #line 329 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		self->priv->regex_compile_flags = _tmp3_ - G_REGEX_MULTILINE;
-#line 1023 "Window.c"
+#line 1078 "Window.c"
 	}
 #line 332 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp4_ = self->priv->flag_case_insensitive;
 #line 332 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	if (gtk_switch_get_active (_tmp4_)) {
-#line 1029 "Window.c"
+#line 1084 "Window.c"
 		GRegexCompileFlags _tmp5_;
 #line 333 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		_tmp5_ = self->priv->regex_compile_flags;
 #line 333 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		self->priv->regex_compile_flags = _tmp5_ | G_REGEX_CASELESS;
-#line 1035 "Window.c"
+#line 1090 "Window.c"
 	}
 #line 334 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp6_ = self->priv->flag_multiline;
 #line 334 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	if (gtk_switch_get_active (_tmp6_)) {
-#line 1041 "Window.c"
+#line 1096 "Window.c"
 		GRegexCompileFlags _tmp7_;
 #line 335 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		_tmp7_ = self->priv->regex_compile_flags;
 #line 335 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		self->priv->regex_compile_flags = _tmp7_ | G_REGEX_MULTILINE;
-#line 1047 "Window.c"
+#line 1102 "Window.c"
 	}
 #line 338 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	return;
-#line 1051 "Window.c"
+#line 1106 "Window.c"
 }
 
 
@@ -1118,7 +1173,7 @@ regex_tester_window_remove_tags (Regex_testerWindow* self,
 	gtk_text_buffer_remove_all_tags (_tmp12_, &_tmp13_, &_tmp14_);
 #line 350 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	return;
-#line 1122 "Window.c"
+#line 1177 "Window.c"
 }
 
 
@@ -1142,7 +1197,7 @@ string_strnlen (gchar* str,
 		result = maxlen;
 #line 1394 "/usr/share/vala-0.40/vapi/glib-2.0.vapi"
 		return result;
-#line 1146 "Window.c"
+#line 1201 "Window.c"
 	} else {
 		gchar* _tmp2_;
 #line 1396 "/usr/share/vala-0.40/vapi/glib-2.0.vapi"
@@ -1151,7 +1206,7 @@ string_strnlen (gchar* str,
 		result = (glong) (_tmp2_ - str);
 #line 1396 "/usr/share/vala-0.40/vapi/glib-2.0.vapi"
 		return result;
-#line 1155 "Window.c"
+#line 1210 "Window.c"
 	}
 }
 
@@ -1172,17 +1227,17 @@ string_substring (const gchar* self,
 	if (offset >= ((glong) 0)) {
 #line 1405 "/usr/share/vala-0.40/vapi/glib-2.0.vapi"
 		_tmp0_ = len >= ((glong) 0);
-#line 1176 "Window.c"
+#line 1231 "Window.c"
 	} else {
 #line 1405 "/usr/share/vala-0.40/vapi/glib-2.0.vapi"
 		_tmp0_ = FALSE;
-#line 1180 "Window.c"
+#line 1235 "Window.c"
 	}
 #line 1405 "/usr/share/vala-0.40/vapi/glib-2.0.vapi"
 	if (_tmp0_) {
 #line 1407 "/usr/share/vala-0.40/vapi/glib-2.0.vapi"
 		string_length = string_strnlen ((gchar*) self, offset + len);
-#line 1186 "Window.c"
+#line 1241 "Window.c"
 	} else {
 		gint _tmp1_;
 		gint _tmp2_;
@@ -1192,11 +1247,11 @@ string_substring (const gchar* self,
 		_tmp2_ = _tmp1_;
 #line 1409 "/usr/share/vala-0.40/vapi/glib-2.0.vapi"
 		string_length = (glong) _tmp2_;
-#line 1196 "Window.c"
+#line 1251 "Window.c"
 	}
 #line 1412 "/usr/share/vala-0.40/vapi/glib-2.0.vapi"
 	if (offset < ((glong) 0)) {
-#line 1200 "Window.c"
+#line 1255 "Window.c"
 		glong _tmp3_;
 #line 1413 "/usr/share/vala-0.40/vapi/glib-2.0.vapi"
 		_tmp3_ = string_length;
@@ -1204,24 +1259,24 @@ string_substring (const gchar* self,
 		offset = _tmp3_ + offset;
 #line 1414 "/usr/share/vala-0.40/vapi/glib-2.0.vapi"
 		g_return_val_if_fail (offset >= ((glong) 0), NULL);
-#line 1208 "Window.c"
+#line 1263 "Window.c"
 	} else {
 		glong _tmp4_;
 #line 1416 "/usr/share/vala-0.40/vapi/glib-2.0.vapi"
 		_tmp4_ = string_length;
 #line 1416 "/usr/share/vala-0.40/vapi/glib-2.0.vapi"
 		g_return_val_if_fail (offset <= _tmp4_, NULL);
-#line 1215 "Window.c"
+#line 1270 "Window.c"
 	}
 #line 1418 "/usr/share/vala-0.40/vapi/glib-2.0.vapi"
 	if (len < ((glong) 0)) {
-#line 1219 "Window.c"
+#line 1274 "Window.c"
 		glong _tmp5_;
 #line 1419 "/usr/share/vala-0.40/vapi/glib-2.0.vapi"
 		_tmp5_ = string_length;
 #line 1419 "/usr/share/vala-0.40/vapi/glib-2.0.vapi"
 		len = _tmp5_ - offset;
-#line 1225 "Window.c"
+#line 1280 "Window.c"
 	}
 #line 1421 "/usr/share/vala-0.40/vapi/glib-2.0.vapi"
 	_tmp6_ = string_length;
@@ -1233,7 +1288,7 @@ string_substring (const gchar* self,
 	result = _tmp7_;
 #line 1422 "/usr/share/vala-0.40/vapi/glib-2.0.vapi"
 	return result;
-#line 1237 "Window.c"
+#line 1292 "Window.c"
 }
 
 
@@ -1294,13 +1349,13 @@ string_to_utf8 (const gchar* self,
 	if (result_length1) {
 #line 1512 "/usr/share/vala-0.40/vapi/glib-2.0.vapi"
 		*result_length1 = _tmp7__length1;
-#line 1298 "Window.c"
+#line 1353 "Window.c"
 	}
 #line 1512 "/usr/share/vala-0.40/vapi/glib-2.0.vapi"
 	result = _tmp7_;
 #line 1512 "/usr/share/vala-0.40/vapi/glib-2.0.vapi"
 	return result;
-#line 1304 "Window.c"
+#line 1359 "Window.c"
 }
 
 
@@ -1331,7 +1386,7 @@ regex_tester_window_shift_unichar (Regex_testerWindow* self,
 	_tmp1_ = substring;
 #line 357 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp3_ = string_to_utf8 (_tmp1_, &_tmp2_);
-#line 1335 "Window.c"
+#line 1390 "Window.c"
 	{
 		gchar* c_collection = NULL;
 		gint c_collection_length1 = 0;
@@ -1343,11 +1398,11 @@ regex_tester_window_shift_unichar (Regex_testerWindow* self,
 		c_collection_length1 = _tmp2_;
 #line 357 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		for (c_it = 0; c_it < c_collection_length1; c_it = c_it + 1) {
-#line 1347 "Window.c"
+#line 1402 "Window.c"
 			gchar c = '\0';
 #line 357 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 			c = c_collection[c_it];
-#line 1351 "Window.c"
+#line 1406 "Window.c"
 			{
 				gboolean _tmp4_ = FALSE;
 				gchar _tmp5_;
@@ -1358,31 +1413,31 @@ regex_tester_window_shift_unichar (Regex_testerWindow* self,
 				if (g_ascii_isprint (_tmp5_)) {
 #line 358 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 					_tmp4_ = TRUE;
-#line 1362 "Window.c"
+#line 1417 "Window.c"
 				} else {
 					gchar _tmp6_;
 #line 358 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 					_tmp6_ = c;
 #line 358 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 					_tmp4_ = g_ascii_isspace (_tmp6_);
-#line 1369 "Window.c"
+#line 1424 "Window.c"
 				}
 #line 358 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 				if (_tmp4_) {
 #line 359 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 					continue;
-#line 1375 "Window.c"
+#line 1430 "Window.c"
 				}
 #line 361 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 				_tmp7_ = return_value;
 #line 361 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 				return_value = _tmp7_ + 1;
-#line 1381 "Window.c"
+#line 1436 "Window.c"
 			}
 		}
 #line 357 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 		c_collection = (g_free (c_collection), NULL);
-#line 1386 "Window.c"
+#line 1441 "Window.c"
 	}
 #line 364 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp8_ = return_value;
@@ -1392,7 +1447,7 @@ regex_tester_window_shift_unichar (Regex_testerWindow* self,
 	_g_free0 (substring);
 #line 364 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	return result;
-#line 1396 "Window.c"
+#line 1451 "Window.c"
 }
 
 
@@ -1402,7 +1457,7 @@ _regex_tester_window_apply_regex_gtk_editable_changed (GtkEditable* _sender,
 {
 #line 81 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	regex_tester_window_apply_regex ((Regex_testerWindow*) self);
-#line 1406 "Window.c"
+#line 1461 "Window.c"
 }
 
 
@@ -1411,7 +1466,7 @@ _regex_tester_window___lambda5_ (Regex_testerWindow* self)
 {
 #line 102 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	regex_tester_window_apply_regex (self);
-#line 1415 "Window.c"
+#line 1470 "Window.c"
 }
 
 
@@ -1421,7 +1476,7 @@ __regex_tester_window___lambda5__gtk_text_buffer_changed (GtkTextBuffer* _sender
 {
 #line 102 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_regex_tester_window___lambda5_ ((Regex_testerWindow*) self);
-#line 1425 "Window.c"
+#line 1480 "Window.c"
 }
 
 
@@ -1793,203 +1848,203 @@ regex_tester_window_constructor (GType type,
 	_tmp58_ = self->priv->text_view;
 #line 104 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	gtk_container_add ((GtkContainer*) _tmp57_, (GtkWidget*) _tmp58_);
-#line 108 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 112 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp59_ = self->priv->text_view;
-#line 108 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 112 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp60_ = gtk_text_view_get_buffer (_tmp59_);
-#line 108 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 112 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp61_ = _tmp60_;
-#line 108 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	gtk_text_buffer_create_tag (_tmp61_, "match", "background", "#34e3e9", NULL);
-#line 109 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 112 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+	gtk_text_buffer_create_tag (_tmp61_, "color0", "background", REGEX_TESTER_COSTANTS_color0, NULL);
+#line 113 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp62_ = self->priv->text_view;
-#line 109 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 113 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp63_ = gtk_text_view_get_buffer (_tmp62_);
-#line 109 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 113 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp64_ = _tmp63_;
-#line 109 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	gtk_text_buffer_create_tag (_tmp64_, "marked_first", "background", "#8cd5ff", NULL);
-#line 110 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 113 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+	gtk_text_buffer_create_tag (_tmp64_, "group1", "background", REGEX_TESTER_COSTANTS_color_group1, NULL);
+#line 114 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp65_ = self->priv->text_view;
-#line 110 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 114 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp66_ = gtk_text_view_get_buffer (_tmp65_);
-#line 110 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 114 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp67_ = _tmp66_;
-#line 110 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	gtk_text_buffer_create_tag (_tmp67_, "marked_second", "background", "#d1ff82", NULL);
-#line 111 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 114 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+	gtk_text_buffer_create_tag (_tmp67_, "group2", "background", REGEX_TESTER_COSTANTS_color_group2, NULL);
+#line 115 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp68_ = self->priv->text_view;
-#line 111 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 115 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp69_ = gtk_text_view_get_buffer (_tmp68_);
-#line 111 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 115 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp70_ = _tmp69_;
-#line 111 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	gtk_text_buffer_create_tag (_tmp70_, "marked_third", "background", "#ff004d", NULL);
 #line 115 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+	gtk_text_buffer_create_tag (_tmp70_, "group3", "background", REGEX_TESTER_COSTANTS_color_group3, NULL);
+#line 121 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp71_ = (GtkGrid*) gtk_grid_new ();
-#line 115 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 121 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	g_object_ref_sink (_tmp71_);
-#line 115 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 121 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	grid = _tmp71_;
-#line 116 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 122 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp72_ = grid;
-#line 116 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 122 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	g_object_set ((GtkWidget*) _tmp72_, "margin", 12, NULL);
-#line 117 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 123 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp73_ = grid;
-#line 117 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 123 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	gtk_grid_set_column_spacing (_tmp73_, 12);
-#line 118 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 124 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp74_ = grid;
-#line 118 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 124 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	gtk_grid_set_row_spacing (_tmp74_, 12);
-#line 119 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 125 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp75_ = grid;
-#line 119 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 125 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp76_ = grid_top_window;
-#line 119 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 125 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	gtk_grid_attach (_tmp75_, (GtkWidget*) _tmp76_, 0, 0, 1, 1);
-#line 120 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 126 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp77_ = grid;
-#line 120 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 126 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp78_ = (GtkSeparator*) gtk_separator_new (GTK_ORIENTATION_HORIZONTAL);
-#line 120 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 126 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	g_object_ref_sink (_tmp78_);
-#line 120 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 126 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp79_ = _tmp78_;
-#line 120 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 126 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	gtk_grid_attach (_tmp77_, (GtkWidget*) _tmp79_, 0, 1, 1, 1);
-#line 120 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 126 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_g_object_unref0 (_tmp79_);
-#line 121 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 127 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp80_ = grid;
-#line 121 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 127 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp81_ = scrolled_window;
-#line 121 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 127 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	gtk_grid_attach (_tmp80_, (GtkWidget*) _tmp81_, 0, 2, 1, 1);
-#line 124 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 130 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp82_ = (GtkLabel*) gtk_label_new ("Match Information");
-#line 124 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 130 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	g_object_ref_sink (_tmp82_);
-#line 124 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 130 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	matches_label = _tmp82_;
-#line 125 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 131 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp83_ = matches_label;
-#line 125 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 131 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	gtk_widget_set_halign ((GtkWidget*) _tmp83_, GTK_ALIGN_START);
-#line 126 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 132 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp84_ = matches_label;
-#line 126 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 132 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	g_object_set ((GtkWidget*) _tmp84_, "margin", 6, NULL);
-#line 127 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 133 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp85_ = matches_label;
-#line 127 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 133 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp86_ = gtk_widget_get_style_context ((GtkWidget*) _tmp85_);
-#line 127 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 133 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	gtk_style_context_add_class (_tmp86_, "match-title");
-#line 128 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 134 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp87_ = matches_label;
-#line 128 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 134 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	gtk_widget_set_halign ((GtkWidget*) _tmp87_, GTK_ALIGN_CENTER);
-#line 131 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 137 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp88_ = (GtkListBox*) gtk_list_box_new ();
-#line 131 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 137 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	g_object_ref_sink (_tmp88_);
-#line 131 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 137 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_g_object_unref0 (self->priv->list_box);
-#line 131 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 137 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	self->priv->list_box = _tmp88_;
-#line 132 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 138 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp89_ = self->priv->list_box;
-#line 132 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 138 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	g_object_set ((GtkWidget*) _tmp89_, "expand", TRUE, NULL);
-#line 133 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 139 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp90_ = self->priv->list_box;
-#line 133 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 139 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	g_object_set ((GtkWidget*) _tmp90_, "width-request", 250, NULL);
-#line 135 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 141 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp91_ = (GtkScrolledWindow*) gtk_scrolled_window_new (NULL, NULL);
-#line 135 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 141 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	g_object_ref_sink (_tmp91_);
-#line 135 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 141 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	scroller = _tmp91_;
-#line 136 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 142 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp92_ = scroller;
-#line 136 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 142 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	g_object_set ((GtkWidget*) _tmp92_, "width-request", 250, NULL);
-#line 137 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 143 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp93_ = scroller;
-#line 137 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 143 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp94_ = self->priv->list_box;
-#line 137 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 143 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	gtk_container_add ((GtkContainer*) _tmp93_, (GtkWidget*) _tmp94_);
-#line 140 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 146 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp95_ = (GtkGrid*) gtk_grid_new ();
-#line 140 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 146 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	g_object_ref_sink (_tmp95_);
-#line 140 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 146 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	grid_sidebar = _tmp95_;
-#line 141 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 147 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp96_ = grid_sidebar;
-#line 141 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 147 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp97_ = matches_label;
-#line 141 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 147 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	gtk_grid_attach (_tmp96_, (GtkWidget*) _tmp97_, 0, 0, 1, 1);
-#line 142 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 148 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp98_ = grid_sidebar;
-#line 142 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 148 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp99_ = (GtkSeparator*) gtk_separator_new (GTK_ORIENTATION_HORIZONTAL);
-#line 142 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 148 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	g_object_ref_sink (_tmp99_);
-#line 142 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 148 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp100_ = _tmp99_;
-#line 142 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 148 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	gtk_grid_attach (_tmp98_, (GtkWidget*) _tmp100_, 0, 1, 1, 1);
-#line 142 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 148 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_g_object_unref0 (_tmp100_);
-#line 143 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 149 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp101_ = grid_sidebar;
-#line 143 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 149 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp102_ = scroller;
-#line 143 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 149 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	gtk_grid_attach (_tmp101_, (GtkWidget*) _tmp102_, 0, 2, 1, 1);
-#line 145 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 151 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp103_ = (GtkPaned*) gtk_paned_new (GTK_ORIENTATION_HORIZONTAL);
-#line 145 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 151 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	g_object_ref_sink (_tmp103_);
-#line 145 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 151 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	pane = _tmp103_;
-#line 146 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 152 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp104_ = pane;
-#line 146 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 152 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	g_object_set ((GtkWidget*) _tmp104_, "expand", TRUE, NULL);
-#line 147 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 153 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp105_ = pane;
-#line 147 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 153 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp106_ = grid;
-#line 147 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 153 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	gtk_paned_pack1 (_tmp105_, (GtkWidget*) _tmp106_, TRUE, FALSE);
-#line 148 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 154 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp107_ = pane;
-#line 148 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 154 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_tmp108_ = grid_sidebar;
-#line 148 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+#line 154 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	gtk_paned_pack2 (_tmp107_, (GtkWidget*) _tmp108_, FALSE, FALSE);
-#line 150 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	_tmp109_ = pane;
-#line 150 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	gtk_container_add ((GtkContainer*) self, (GtkWidget*) _tmp109_);
-#line 152 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	_tmp110_ = regex_tester_header_bar_new ();
-#line 152 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	g_object_ref_sink (_tmp110_);
-#line 152 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	headerbar = _tmp110_;
-#line 153 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	_tmp111_ = headerbar;
-#line 153 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
-	gtk_window_set_titlebar ((GtkWindow*) self, (GtkWidget*) _tmp111_);
 #line 156 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+	_tmp109_ = pane;
+#line 156 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+	gtk_container_add ((GtkContainer*) self, (GtkWidget*) _tmp109_);
+#line 158 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+	_tmp110_ = regex_tester_header_bar_new ();
+#line 158 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+	g_object_ref_sink (_tmp110_);
+#line 158 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+	headerbar = _tmp110_;
+#line 159 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+	_tmp111_ = headerbar;
+#line 159 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
+	gtk_window_set_titlebar ((GtkWindow*) self, (GtkWidget*) _tmp111_);
+#line 162 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	gtk_widget_show_all ((GtkWidget*) self);
 #line 39 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	_g_object_unref0 (headerbar);
@@ -2017,7 +2072,7 @@ regex_tester_window_constructor (GType type,
 	_g_object_unref0 (frame_num_match);
 #line 39 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	return obj;
-#line 2021 "Window.c"
+#line 2076 "Window.c"
 }
 
 
@@ -2032,7 +2087,7 @@ regex_tester_window_class_init (Regex_testerWindowClass * klass)
 	G_OBJECT_CLASS (klass)->constructor = regex_tester_window_constructor;
 #line 19 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	G_OBJECT_CLASS (klass)->finalize = regex_tester_window_finalize;
-#line 2036 "Window.c"
+#line 2091 "Window.c"
 }
 
 
@@ -2043,7 +2098,7 @@ regex_tester_window_instance_init (Regex_testerWindow * self)
 	self->priv = REGEX_TESTER_WINDOW_GET_PRIVATE (self);
 #line 23 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	self->priv->regex_compile_flags = G_REGEX_CASELESS;
-#line 2047 "Window.c"
+#line 2102 "Window.c"
 }
 
 
@@ -2067,7 +2122,7 @@ regex_tester_window_finalize (GObject * obj)
 	_g_object_unref0 (self->priv->label_num_match);
 #line 19 "/home/francesco/Progetti_Personali/Regex_tester/src/Widgets/Window.vala"
 	G_OBJECT_CLASS (regex_tester_window_parent_class)->finalize (obj);
-#line 2071 "Window.c"
+#line 2126 "Window.c"
 }
 
 

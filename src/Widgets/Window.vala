@@ -1,16 +1,16 @@
 /*
 * Copyright (c) 2021 Francesco Barbanti
 *
-* Akira is free software: you can redistribute it and/or modify
+* Regex Tester is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
 * the Free Software Foundation, either version 3 of the License, or
 * (at your option) any later version.
-* Akira is distributed in the hope that it will be useful,
+* Regex Tester is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 * GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License
-* along with Akira. If not, see <https://www.gnu.org/licenses/>.
+* along with Regex Tester. If not, see <https://www.gnu.org/licenses/>.
 *
 * Authored by: Francesco Barbanti <francesco.barbanti.97@gmail.com>
 */
@@ -105,10 +105,16 @@ public class Regex_tester.Window : Gtk.ApplicationWindow {
 
 
         // create TextTag
-        text_view.buffer.create_tag("match", "background", "#34e3e9");
-        text_view.buffer.create_tag ("marked_first", "background", "#8cd5ff");
-        text_view.buffer.create_tag ("marked_second", "background", "#d1ff82");
-        text_view.buffer.create_tag ("marked_third", "background", "#ff004d");
+        //  var rgba = Gdk.RGBA ();
+        //  rgba.parse (Costants.color1);
+
+        //  text_view.buffer.create_tag ("marked_first", "background_rgba", rgba);
+        text_view.buffer.create_tag ("color0", "background", Costants.color0);
+        text_view.buffer.create_tag ("group1", "background", Costants.color_group1);
+        text_view.buffer.create_tag ("group2", "background", Costants.color_group2);
+        text_view.buffer.create_tag ("group3", "background", Costants.color_group3);
+
+        
 
 
 
@@ -203,7 +209,9 @@ public class Regex_tester.Window : Gtk.ApplicationWindow {
                 int pos_end = 0;
 
                 while(match_info.matches()) {
-                    //  GLib.List<RegexTester.GroupItem> group_items = new GLib.List<RegexTester.GroupItem> ();
+                    //  Regex_tester.MatchItem group_items = new Regex_tester.MatchItem ();
+
+                    var match_grid = new Gtk.Grid();
 
                     for(int i=0; i<match_info.get_match_count(); i++){
                         match_info.fetch_pos(i, out pos_start, out pos_end);
@@ -212,39 +220,31 @@ public class Regex_tester.Window : Gtk.ApplicationWindow {
                         start.set_offset(pos_start - shift_unichar (str_text, pos_start));
                         end.set_offset(pos_end - shift_unichar (str_text, pos_end));
                         
-                        //  text_view.buffer.apply_tag_by_name("match", start, end);
-
                         string str = match_info.fetch (i);
                         list.append(str);
 
-                        if (i == 0)
-                            text_view.buffer.apply_tag_by_name("marked_first", start, end);
-                        else{
-                            if(str != ""){
-                                if (i == 1)
-                                    text_view.buffer.apply_tag_by_name("marked_second", start, end);
-                                if (i == 2)
-                                    text_view.buffer.apply_tag_by_name("marked_third", start, end);
+                       
+                        if(str != ""){
+                            // Se è un match
+                            if (i == 0)
+                                text_view.buffer.apply_tag_by_name("color0", start, end);
+                            else{
+                            // se è un gruppo
+                                string s = "group" + i.to_string ();
+                                text_view.buffer.apply_tag_by_name(s, start, end);
                             }
 
+                            match_grid.attach(new Gtk.Label(str), 0, i);
                         }
-
-                        
-                        //  var new_group_item = new RegexTester.GroupItem (str, offset_start, offset_end);
-                        //  group_items.append (new_group_item);
-
-                        // Se il match non appartiene a questo gruppo
-                        
-                        //  print(match_info.fetch_named(str) + "\n");
-                        print(str);
-                        //  stdout.printf(" i: %d, ",i);
                     }
-                    print("\n");
-            
+                    list_box.add(new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
+                    list_box.add(match_grid);
+
                     num_match ++;
 
                     match_info.next();
                 }
+                list_box.show_all();
 
             }
         }
@@ -364,5 +364,7 @@ public class Regex_tester.Window : Gtk.ApplicationWindow {
         return return_value / 2;
     }
 
+    //  private string hex_to_rgb(string c1, string c2){
 
+    //  }
 }

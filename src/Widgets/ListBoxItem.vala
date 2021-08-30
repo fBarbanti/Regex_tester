@@ -15,17 +15,10 @@
 * Authored by: Francesco Barbanti <francesco.barbanti.97@gmail.com>
 */
 
-public class Regex_tester.HeaderBar : Gtk.HeaderBar {
+public class Regex_tester.ListBoxItem : Gtk.Box{
 
     construct {
-        set_title("Regex Tester");
-        set_show_close_button(true);
-        var setting_button = new Gtk.Button.from_icon_name("open-menu");
-        setting_button.valign = Gtk.Align.CENTER;
-
-        pack_end(setting_button);
-       
+        
     }
 
 }
-

@@ -4,16 +4,16 @@
 /*
 * Copyright (c) 2021 Francesco Barbanti
 *
-* Akira is free software: you can redistribute it and/or modify
+* Regex Tester is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
 * the Free Software Foundation, either version 3 of the License, or
 * (at your option) any later version.
-* Akira is distributed in the hope that it will be useful,
+* Regex Tester is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 * GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License
-* along with Akira. If not, see <https://www.gnu.org/licenses/>.
+* along with Regex Tester. If not, see <https://www.gnu.org/licenses/>.
 *
 * Authored by: Francesco Barbanti <francesco.barbanti.97@gmail.com>
 */
@@ -54,6 +54,7 @@ struct _Regex_testerMatchItemPrivate {
 	gchar* _text;
 	gint _pos_start;
 	gint _pos_end;
+	gchar* _color;
 };
 
 struct _Regex_testerParamSpecMatchItem {
@@ -79,20 +80,25 @@ GType regex_tester_match_item_get_type (void) G_GNUC_CONST;
 #define REGEX_TESTER_MATCH_ITEM_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), REGEX_TESTER_TYPE_MATCH_ITEM, Regex_testerMatchItemPrivate))
 Regex_testerMatchItem* regex_tester_match_item_new (const gchar* text,
                                                     gint pos_start,
-                                                    gint pos_end);
+                                                    gint pos_end,
+                                                    const gchar* color);
 Regex_testerMatchItem* regex_tester_match_item_construct (GType object_type,
                                                           const gchar* text,
                                                           gint pos_start,
-                                                          gint pos_end);
+                                                          gint pos_end,
+                                                          const gchar* color);
 static void regex_tester_match_item_set_text (Regex_testerMatchItem* self,
                                        const gchar* value);
 static void regex_tester_match_item_set_pos_start (Regex_testerMatchItem* self,
                                             gint value);
 static void regex_tester_match_item_set_pos_end (Regex_testerMatchItem* self,
                                           gint value);
+static void regex_tester_match_item_set_color (Regex_testerMatchItem* self,
+                                        const gchar* value);
 const gchar* regex_tester_match_item_get_text (Regex_testerMatchItem* self);
 gint regex_tester_match_item_get_pos_start (Regex_testerMatchItem* self);
 gint regex_tester_match_item_get_pos_end (Regex_testerMatchItem* self);
+const gchar* regex_tester_match_item_get_color (Regex_testerMatchItem* self);
 static void regex_tester_match_item_finalize (Regex_testerMatchItem * obj);
 
 
@@ -100,33 +106,39 @@ Regex_testerMatchItem*
 regex_tester_match_item_construct (GType object_type,
                                    const gchar* text,
                                    gint pos_start,
-                                   gint pos_end)
+                                   gint pos_end,
+                                   const gchar* color)
 {
 	Regex_testerMatchItem* self = NULL;
-#line 23 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
-	g_return_val_if_fail (text != NULL, NULL);
-#line 23 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
-	self = (Regex_testerMatchItem*) g_type_create_instance (object_type);
 #line 24 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
-	regex_tester_match_item_set_text (self, text);
+	g_return_val_if_fail (text != NULL, NULL);
+#line 24 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
+	g_return_val_if_fail (color != NULL, NULL);
+#line 24 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
+	self = (Regex_testerMatchItem*) g_type_create_instance (object_type);
 #line 25 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
-	regex_tester_match_item_set_pos_start (self, pos_start);
+	regex_tester_match_item_set_text (self, text);
 #line 26 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
+	regex_tester_match_item_set_pos_start (self, pos_start);
+#line 27 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 	regex_tester_match_item_set_pos_end (self, pos_end);
-#line 23 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
+#line 28 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
+	regex_tester_match_item_set_color (self, color);
+#line 24 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 	return self;
-#line 119 "MatchItem.c"
+#line 130 "MatchItem.c"
 }
 
 
 Regex_testerMatchItem*
 regex_tester_match_item_new (const gchar* text,
                              gint pos_start,
-                             gint pos_end)
+                             gint pos_end,
+                             const gchar* color)
 {
-#line 23 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
-	return regex_tester_match_item_construct (REGEX_TESTER_TYPE_MATCH_ITEM, text, pos_start, pos_end);
-#line 130 "MatchItem.c"
+#line 24 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
+	return regex_tester_match_item_construct (REGEX_TESTER_TYPE_MATCH_ITEM, text, pos_start, pos_end, color);
+#line 142 "MatchItem.c"
 }
 
 
@@ -143,7 +155,7 @@ regex_tester_match_item_get_text (Regex_testerMatchItem* self)
 	result = _tmp0_;
 #line 19 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 	return result;
-#line 147 "MatchItem.c"
+#line 159 "MatchItem.c"
 }
 
 
@@ -160,7 +172,7 @@ regex_tester_match_item_set_text (Regex_testerMatchItem* self,
 	_g_free0 (self->priv->_text);
 #line 19 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 	self->priv->_text = _tmp0_;
-#line 164 "MatchItem.c"
+#line 176 "MatchItem.c"
 }
 
 
@@ -177,7 +189,7 @@ regex_tester_match_item_get_pos_start (Regex_testerMatchItem* self)
 	result = _tmp0_;
 #line 20 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 	return result;
-#line 181 "MatchItem.c"
+#line 193 "MatchItem.c"
 }
 
 
@@ -189,7 +201,7 @@ regex_tester_match_item_set_pos_start (Regex_testerMatchItem* self,
 	g_return_if_fail (self != NULL);
 #line 20 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 	self->priv->_pos_start = value;
-#line 193 "MatchItem.c"
+#line 205 "MatchItem.c"
 }
 
 
@@ -206,7 +218,7 @@ regex_tester_match_item_get_pos_end (Regex_testerMatchItem* self)
 	result = _tmp0_;
 #line 21 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 	return result;
-#line 210 "MatchItem.c"
+#line 222 "MatchItem.c"
 }
 
 
@@ -218,7 +230,41 @@ regex_tester_match_item_set_pos_end (Regex_testerMatchItem* self,
 	g_return_if_fail (self != NULL);
 #line 21 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 	self->priv->_pos_end = value;
-#line 222 "MatchItem.c"
+#line 234 "MatchItem.c"
+}
+
+
+const gchar*
+regex_tester_match_item_get_color (Regex_testerMatchItem* self)
+{
+	const gchar* result;
+	const gchar* _tmp0_;
+#line 22 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
+	g_return_val_if_fail (self != NULL, NULL);
+#line 22 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
+	_tmp0_ = self->priv->_color;
+#line 22 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
+	result = _tmp0_;
+#line 22 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
+	return result;
+#line 251 "MatchItem.c"
+}
+
+
+static void
+regex_tester_match_item_set_color (Regex_testerMatchItem* self,
+                                   const gchar* value)
+{
+	gchar* _tmp0_;
+#line 22 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
+	g_return_if_fail (self != NULL);
+#line 22 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
+	_tmp0_ = g_strdup (value);
+#line 22 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
+	_g_free0 (self->priv->_color);
+#line 22 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
+	self->priv->_color = _tmp0_;
+#line 268 "MatchItem.c"
 }
 
 
@@ -227,7 +273,7 @@ regex_tester_value_match_item_init (GValue* value)
 {
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 	value->data[0].v_pointer = NULL;
-#line 231 "MatchItem.c"
+#line 277 "MatchItem.c"
 }
 
 
@@ -238,7 +284,7 @@ regex_tester_value_match_item_free_value (GValue* value)
 	if (value->data[0].v_pointer) {
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 		regex_tester_match_item_unref (value->data[0].v_pointer);
-#line 242 "MatchItem.c"
+#line 288 "MatchItem.c"
 	}
 }
 
@@ -251,11 +297,11 @@ regex_tester_value_match_item_copy_value (const GValue* src_value,
 	if (src_value->data[0].v_pointer) {
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 		dest_value->data[0].v_pointer = regex_tester_match_item_ref (src_value->data[0].v_pointer);
-#line 255 "MatchItem.c"
+#line 301 "MatchItem.c"
 	} else {
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 		dest_value->data[0].v_pointer = NULL;
-#line 259 "MatchItem.c"
+#line 305 "MatchItem.c"
 	}
 }
 
@@ -265,7 +311,7 @@ regex_tester_value_match_item_peek_pointer (const GValue* value)
 {
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 	return value->data[0].v_pointer;
-#line 269 "MatchItem.c"
+#line 315 "MatchItem.c"
 }
 
 
@@ -277,30 +323,30 @@ regex_tester_value_match_item_collect_value (GValue* value,
 {
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 	if (collect_values[0].v_pointer) {
-#line 281 "MatchItem.c"
+#line 327 "MatchItem.c"
 		Regex_testerMatchItem * object;
 		object = collect_values[0].v_pointer;
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 		if (object->parent_instance.g_class == NULL) {
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 			return g_strconcat ("invalid unclassed object pointer for value type `", G_VALUE_TYPE_NAME (value), "'", NULL);
-#line 288 "MatchItem.c"
+#line 334 "MatchItem.c"
 		} else if (!g_value_type_compatible (G_TYPE_FROM_INSTANCE (object), G_VALUE_TYPE (value))) {
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 			return g_strconcat ("invalid object type `", g_type_name (G_TYPE_FROM_INSTANCE (object)), "' for value type `", G_VALUE_TYPE_NAME (value), "'", NULL);
-#line 292 "MatchItem.c"
+#line 338 "MatchItem.c"
 		}
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 		value->data[0].v_pointer = regex_tester_match_item_ref (object);
-#line 296 "MatchItem.c"
+#line 342 "MatchItem.c"
 	} else {
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 		value->data[0].v_pointer = NULL;
-#line 300 "MatchItem.c"
+#line 346 "MatchItem.c"
 	}
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 	return NULL;
-#line 304 "MatchItem.c"
+#line 350 "MatchItem.c"
 }
 
 
@@ -316,25 +362,25 @@ regex_tester_value_match_item_lcopy_value (const GValue* value,
 	if (!object_p) {
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 		return g_strdup_printf ("value location for `%s' passed as NULL", G_VALUE_TYPE_NAME (value));
-#line 320 "MatchItem.c"
+#line 366 "MatchItem.c"
 	}
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 	if (!value->data[0].v_pointer) {
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 		*object_p = NULL;
-#line 326 "MatchItem.c"
+#line 372 "MatchItem.c"
 	} else if (collect_flags & G_VALUE_NOCOPY_CONTENTS) {
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 		*object_p = value->data[0].v_pointer;
-#line 330 "MatchItem.c"
+#line 376 "MatchItem.c"
 	} else {
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 		*object_p = regex_tester_match_item_ref (value->data[0].v_pointer);
-#line 334 "MatchItem.c"
+#line 380 "MatchItem.c"
 	}
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 	return NULL;
-#line 338 "MatchItem.c"
+#line 384 "MatchItem.c"
 }
 
 
@@ -354,7 +400,7 @@ regex_tester_param_spec_match_item (const gchar* name,
 	G_PARAM_SPEC (spec)->value_type = object_type;
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 	return G_PARAM_SPEC (spec);
-#line 358 "MatchItem.c"
+#line 404 "MatchItem.c"
 }
 
 
@@ -365,7 +411,7 @@ regex_tester_value_get_match_item (const GValue* value)
 	g_return_val_if_fail (G_TYPE_CHECK_VALUE_TYPE (value, REGEX_TESTER_TYPE_MATCH_ITEM), NULL);
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 	return value->data[0].v_pointer;
-#line 369 "MatchItem.c"
+#line 415 "MatchItem.c"
 }
 
 
@@ -388,17 +434,17 @@ regex_tester_value_set_match_item (GValue* value,
 		value->data[0].v_pointer = v_object;
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 		regex_tester_match_item_ref (value->data[0].v_pointer);
-#line 392 "MatchItem.c"
+#line 438 "MatchItem.c"
 	} else {
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 		value->data[0].v_pointer = NULL;
-#line 396 "MatchItem.c"
+#line 442 "MatchItem.c"
 	}
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 	if (old) {
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 		regex_tester_match_item_unref (old);
-#line 402 "MatchItem.c"
+#line 448 "MatchItem.c"
 	}
 }
 
@@ -420,17 +466,17 @@ regex_tester_value_take_match_item (GValue* value,
 		g_return_if_fail (g_value_type_compatible (G_TYPE_FROM_INSTANCE (v_object), G_VALUE_TYPE (value)));
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 		value->data[0].v_pointer = v_object;
-#line 424 "MatchItem.c"
+#line 470 "MatchItem.c"
 	} else {
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 		value->data[0].v_pointer = NULL;
-#line 428 "MatchItem.c"
+#line 474 "MatchItem.c"
 	}
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 	if (old) {
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 		regex_tester_match_item_unref (old);
-#line 434 "MatchItem.c"
+#line 480 "MatchItem.c"
 	}
 }
 
@@ -444,7 +490,7 @@ regex_tester_match_item_class_init (Regex_testerMatchItemClass * klass)
 	((Regex_testerMatchItemClass *) klass)->finalize = regex_tester_match_item_finalize;
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 	g_type_class_add_private (klass, sizeof (Regex_testerMatchItemPrivate));
-#line 448 "MatchItem.c"
+#line 494 "MatchItem.c"
 }
 
 
@@ -455,7 +501,7 @@ regex_tester_match_item_instance_init (Regex_testerMatchItem * self)
 	self->priv = REGEX_TESTER_MATCH_ITEM_GET_PRIVATE (self);
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 	self->ref_count = 1;
-#line 459 "MatchItem.c"
+#line 505 "MatchItem.c"
 }
 
 
@@ -469,7 +515,9 @@ regex_tester_match_item_finalize (Regex_testerMatchItem * obj)
 	g_signal_handlers_destroy (self);
 #line 19 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 	_g_free0 (self->priv->_text);
-#line 473 "MatchItem.c"
+#line 22 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
+	_g_free0 (self->priv->_color);
+#line 521 "MatchItem.c"
 }
 
 
@@ -498,7 +546,7 @@ regex_tester_match_item_ref (gpointer instance)
 	g_atomic_int_inc (&self->ref_count);
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 	return instance;
-#line 502 "MatchItem.c"
+#line 550 "MatchItem.c"
 }
 
 
@@ -513,7 +561,7 @@ regex_tester_match_item_unref (gpointer instance)
 		REGEX_TESTER_MATCH_ITEM_GET_CLASS (self)->finalize (self);
 #line 18 "/home/francesco/Progetti_Personali/Regex_tester/src/Objects/MatchItem.vala"
 		g_type_free_instance ((GTypeInstance *) self);
-#line 517 "MatchItem.c"
+#line 565 "MatchItem.c"
 	}
 }
 
