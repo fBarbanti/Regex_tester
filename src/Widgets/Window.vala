@@ -201,18 +201,25 @@ public class Regex_tester.Window : Gtk.ApplicationWindow {
 
         try {
             regex = new Regex(str_regex, regex_compile_flags);
-            GLib.List<string> list = new GLib.List<string> ();
 
             if(regex.match(str_text, 0, out match_info)){
 
                 int pos_start = 0;
                 int pos_end = 0;
 
+                int match_count = 0;
+
+                //  int color_r = -1;
+                //  int color_g = -1;
+                //  int color_b = -1;
+
+                Regex_tester.Rectangle rect;
+
                 while(match_info.matches()) {
                     //  Regex_tester.MatchItem group_items = new Regex_tester.MatchItem ();
 
                     var match_grid = new Gtk.Grid();
-
+                    
                     for(int i=0; i<match_info.get_match_count(); i++){
                         match_info.fetch_pos(i, out pos_start, out pos_end);
                         //  stdout.printf( "start:%d - end:%d\n-----\n", pos_start, pos_end);
@@ -221,21 +228,73 @@ public class Regex_tester.Window : Gtk.ApplicationWindow {
                         end.set_offset(pos_end - shift_unichar (str_text, pos_end));
                         
                         string str = match_info.fetch (i);
-                        list.append(str);
 
-                       
+                        var match_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+                        match_box.expand = true;
+                      
+                        var string_match = new Gtk.Label(null);
+                        string_match.get_style_context ().add_class("text-result");
+
+
                         if(str != ""){
                             // Se è un match
-                            if (i == 0)
+                            if (i == 0){
                                 text_view.buffer.apply_tag_by_name("color0", start, end);
+                                match_count ++;
+                                string_match.label = "Match " + match_count.to_string();
+                                //  match_box.get_style_context ().add_class ("frame-color0");
+
+                                // 
+                                //  Costants.color0.scanf("%01c%02x%02x%02x",&f, &r, &g, &b);
+                                //  hex_to_rgb(Costants.color0, ref color_r, ref color_g, ref color_b);
+                                //  stdout.printf("r:%d, g:%d, b:%d\n",color_r,color_g,color_b);
+
+                                rect = new Regex_tester.Rectangle("frame-color0");
+                            }
                             else{
                             // se è un gruppo
                                 string s = "group" + i.to_string ();
                                 text_view.buffer.apply_tag_by_name(s, start, end);
+                                //  string_match.label = "Group " + match_count.to_string();
+                                string_match.label = "Group " + i.to_string ();
+
+                                //  hex_to_rgb(Costants.color_group1, ref color_r, ref color_g, ref color_b);
+                                rect = new Regex_tester.Rectangle("frame-group1");
+
                             }
 
-                            match_grid.attach(new Gtk.Label(str), 0, i);
+                            // Crea rettangolo colorato
+                            //  var colored_frame = new Gtk.Frame(null);
+                            //  colored_frame.set_size_request(6, 13);
+                            //  var ds = Gdk.RGBA ();
+                            //  ds.red = 255;
+                            //  ds.green = 186;
+                            //  ds.blue = 0;
+                            //  ds.alpha = 1;
+                            //  colored_frame.override_background_color(Gtk.StateFlags.NORMAL,ds);
+                            //  colored_frame.margin_start = 5;
+
+                           
+
+                    
+                            string_match.margin_top = 5;
+                            string_match.margin_start = 5;
+                            //  string_match.get_style_context ().add_class("match-title");
+
+                            if (i == match_info.get_match_count()-1)
+                                string_match.margin_bottom = 5;
+
+                            match_box.pack_start(rect, false, false, 0);
+                            match_box.pack_start(string_match, false, false, 0);
+                            var label_str  = new Gtk.Label(str);
+                            label_str.get_style_context ().add_class("text-result");
+                            label_str.valign = Gtk.Align.START;
+                            label_str.margin_top = 4;
+                            
+                            match_box.pack_end(label_str, true, false, 0);
+
                         }
+                        match_grid.attach(match_box, 0, i);
                     }
                     list_box.add(new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
                     list_box.add(match_grid);
@@ -364,7 +423,9 @@ public class Regex_tester.Window : Gtk.ApplicationWindow {
         return return_value / 2;
     }
 
-    //  private string hex_to_rgb(string c1, string c2){
-
-    //  }
+    private void hex_to_rgb(string c1, ref int r, ref int g, ref int b){
+        char f = 'a';
+        c1.scanf("%01c%02x%02x%02x",&f, &r, &g, &b);
+        return;
+    }
 }

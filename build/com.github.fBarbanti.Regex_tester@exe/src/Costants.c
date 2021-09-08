@@ -28,9 +28,9 @@
 
 
 #define REGEX_TESTER_COSTANTS_color0 "#FFADAD"
-#define REGEX_TESTER_COSTANTS_color_group1 "#FFD6A5"
-#define REGEX_TESTER_COSTANTS_color_group2 "#CAFFBF"
-#define REGEX_TESTER_COSTANTS_color_group3 "#9BF6FF"
+#define REGEX_TESTER_COSTANTS_color_group1 "#9BF6FF"
+#define REGEX_TESTER_COSTANTS_color_group2 "#FFD6A5"
+#define REGEX_TESTER_COSTANTS_color_group3 "#CAFFBF"
 #define REGEX_TESTER_COSTANTS_color_group4 "#FDFFB6"
 #define REGEX_TESTER_COSTANTS_color_group5 "#FFC6FF"
 

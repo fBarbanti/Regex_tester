@@ -23,12 +23,13 @@ executable(
     'src/Objects/MatchItem.vala',
 
     'src/Widgets/Header.vala',
+    'src/Widgets/Rectangle.vala',
     'src/Widgets/Window.vala',
-    'src/Widgets/ListBoxItem.vala',
 
 
     dependencies: [
-        dependency('gtk+-3.0')
+        dependency('gtk+-3.0'),
+        dependency('cairo')
     ],
     install: true
 )

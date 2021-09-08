@@ -1,7 +1,7 @@
 [
   {
     "directory": "/home/francesco/Progetti_Personali/Regex_tester/build",
-    "command": "valac -C --debug --debug --pkg gtk+-3.0 --color=always --directory com.github.fBarbanti.Regex_tester@exe --basedir ../ --gresources=../data/gresource.xml ../src/Main.vala ../src/Application.vala ../src/Costants.vala ../src/Objects/MatchItem.vala ../src/Widgets/Header.vala ../src/Widgets/Window.vala ../src/Widgets/ListBoxItem.vala",
+    "command": "valac -C --debug --debug --pkg cairo --pkg gtk+-3.0 --color=always --directory com.github.fBarbanti.Regex_tester@exe --basedir ../ --gresources=../data/gresource.xml ../src/Main.vala ../src/Application.vala ../src/Costants.vala ../src/Objects/MatchItem.vala ../src/Widgets/Header.vala ../src/Widgets/Rectangle.vala ../src/Widgets/Window.vala",
     "file": "../src/Main.vala"
   },
   {
@@ -36,12 +36,12 @@
   },
   {
     "directory": "/home/francesco/Progetti_Personali/Regex_tester/build",
-    "command": "cc -Icom.github.fBarbanti.Regex_tester@exe -I. -I.. -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -w -g -pthread  -MD -MQ 'com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Widgets_Window.c.o' -MF 'com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Widgets_Window.c.o.d' -o 'com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Widgets_Window.c.o' -c 'com.github.fBarbanti.Regex_tester@exe/src/Widgets/Window.c'",
-    "file": "com.github.fBarbanti.Regex_tester@exe/src/Widgets/Window.c"
+    "command": "cc -Icom.github.fBarbanti.Regex_tester@exe -I. -I.. -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -w -g -pthread  -MD -MQ 'com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Widgets_Rectangle.c.o' -MF 'com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Widgets_Rectangle.c.o.d' -o 'com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Widgets_Rectangle.c.o' -c 'com.github.fBarbanti.Regex_tester@exe/src/Widgets/Rectangle.c'",
+    "file": "com.github.fBarbanti.Regex_tester@exe/src/Widgets/Rectangle.c"
   },
   {
     "directory": "/home/francesco/Progetti_Personali/Regex_tester/build",
-    "command": "cc -Icom.github.fBarbanti.Regex_tester@exe -I. -I.. -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -w -g -pthread  -MD -MQ 'com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Widgets_ListBoxItem.c.o' -MF 'com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Widgets_ListBoxItem.c.o.d' -o 'com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Widgets_ListBoxItem.c.o' -c 'com.github.fBarbanti.Regex_tester@exe/src/Widgets/ListBoxItem.c'",
-    "file": "com.github.fBarbanti.Regex_tester@exe/src/Widgets/ListBoxItem.c"
+    "command": "cc -Icom.github.fBarbanti.Regex_tester@exe -I. -I.. -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -w -g -pthread  -MD -MQ 'com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Widgets_Window.c.o' -MF 'com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Widgets_Window.c.o.d' -o 'com.github.fBarbanti.Regex_tester@exe/meson-generated_src_Widgets_Window.c.o' -c 'com.github.fBarbanti.Regex_tester@exe/src/Widgets/Window.c'",
+    "file": "com.github.fBarbanti.Regex_tester@exe/src/Widgets/Window.c"
   }
 ]

@@ -1,4 +1,4 @@
-Build started at 2021-08-30T16:48:42.654554
+Build started at 2021-09-08T23:21:52.193892
 Main binary: /usr/bin/python3
 Python system: Linux
 The Meson build system
@@ -23,8 +23,8 @@ Called `/usr/bin/pkg-config glib-2.0 --libs` -> 0
 Called `/usr/bin/pkg-config glib-2.0 --libs` -> 0
 -lglib-2.0
 Running compile:
-Working directory:  /tmp/tmp9murourq
-Command line:  cc /tmp/tmp9murourq/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -o /tmp/tmp9murourq/output.exe -O0 
+Working directory:  /tmp/tmpypah7ral
+Command line:  cc /tmp/tmpypah7ral/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -o /tmp/tmpypah7ral/output.exe -O0 
 
 Code:
  #include<stdio.h>
@@ -45,8 +45,8 @@ Program stderr:
 
 
 Running compile:
-Working directory:  /tmp/tmphuiv4b3o
-Command line:  cc /tmp/tmphuiv4b3o/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmphuiv4b3o/output.obj -O0 --print-search-dirs 
+Working directory:  /tmp/tmppdk8f9kx
+Command line:  cc /tmp/tmppdk8f9kx/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmppdk8f9kx/output.obj -O0 --print-search-dirs 
 
 Code:
  
@@ -58,5 +58,6 @@ libraries: =/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../
 Compiler stderr:
  
 Dependency gtk+-3.0 found: YES (cached)
+Dependency cairo found: YES (cached)
 Build targets in project: 3
 Found ninja-1.8.2 at /usr/bin/ninja

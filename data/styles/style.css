@@ -6,6 +6,24 @@
     font-size: large;
     border-width: 2px;
 }
+
+.text-result {
+    font-size: large;
+}
+
 .frame-border {
     border-radius: 3px;
+}
+
+.frame-color0 {
+    background-color: #FFADAD;
+}
+.frame-group1 {
+    background-color: #9BF6FF;
+}
+.frame-group2 {
+    background-color: #FFD6A5;
+}
+.frame-group3 {
+    background-color: #CAFFBF;
 }
